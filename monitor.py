@@ -1,36 +1,127 @@
 from twisted.words.protocols import irc
-from twisted.internet import protocol
+from twisted.internet import protocol, task
 
-class IrcBot(irc.IRCClient):
-    def _get_nickname(self):
+class GitoriousMergeRequestMessager(object):
+
+    @staticmethod
+    def items_equal(item1, item2):
+        return False
+
+    def __init__(self, message_callback):
+        self.callback = message_callback
+        self.old_items = []
+
+        # Used to avoid outputting RSS items that exists in the feed
+        # at startup
+        self.first_run = True
+
+    def getNewItems(self, parsed_feed):
+        items = parsed_feed.get('items', [])
+
+        new_items = []
+        for item in items:
+            if not item in self.old_items:
+                new_items.append(item)
+
+        self.old_items = items
+        return new_items
+
+    def processRss(self, parsed_feed):
+        new_items = self.getNewItems(parsed_feed)
+
+        for item in new_items:
+            msg = self.itemToMessage(item)
+            if msg and not self.first_run:
+                self.callback(msg)
+
+        self.first_run = False
+
+    def itemToMessage(self, item):
+
+        msg = None
+
+        # We are only interested in merge requests,
+        # but not in comments on them (too noisy)
+        title = item.get('title', '')
+        if 'merge request' in title and not 'commented' in title:
+            msg = '%s' % title
+
+            # TODO: more pretty output
+            # - escape HTML entities
+            # - link to merge request
+
+        return msg
+
+class IrcBot(object):
+
+    def __init__(self, feeds):
+        self.check_rss_task = task.LoopingCall(self.checkRssFeed)
+        self.processor = GitoriousMergeRequestMessager(self.outputMessage)
+        self.protocol = None
+        self.feeds = feeds
+
+    def connected(self):
+        self.check_rss_task.start(60*5)
+
+    def disconnected(self):
+        self.check_rss_task.stop()
+
+    def checkRssFeed(self):
+        f = FeederFactory()
+        d = f.start(self.feeds, self.processNewRss)
+
+    def processNewRss(self, parsed_feed):
+        self.processor.processRss(parsed_feed)
+
+    def outputMessage(self, message):
+        self.protocol.msg(self.protocol.factory.channel, str(message))
+
+class IrcProtocol(irc.IRCClient):
+
+    @property
+    def nickname(self):
         return self.factory.nickname
-    nickname = property(_get_nickname)
+
+    @property
+    def lineRate(self):
+        return 1 # Limit rate to 1 line per second
 
     def signedOn(self):
+        print "Signed on as %s." % (self.factory.nickname,)
         self.join(self.factory.channel)
-        print "Signed on as %s." % (self.nickname,)
 
     def joined(self, channel):
         print "Joined %s." % (channel,)
+        self.factory.bot.connected()
 
-    def privmsg(self, user, channel, msg):
-        pass
-        # Echo self.msg(self.factory.channel, msg)
+    def left(self, channel):
+        print 'Left %s.' % (channel,)
 
 class IrcBotFactory(protocol.ClientFactory):
-    protocol = IrcBot
 
-    def __init__(self, channel, nickname):
+    def __init__(self, channel, nickname, feeds):
         self.channel = channel
         self.nickname = nickname
+        self.feeds = feeds
+
+        self.bot = IrcBot(feeds)
+
+    def buildProtocol(self, addr):
+        protocol = IrcProtocol()
+        protocol.factory = self
+        self.bot.protocol = protocol
+        return protocol
 
     def clientConnectionLost(self, connector, reason):
         print "Lost connection (%s), reconnecting." % (reason,)
+        self.bot.disconnected()
         connector.connect()
 
     def clientConnectionFailed(self, connector, reason):
-        print "Could not connect: %s" % (reason,)
-        
+        print "Could not connect: (%s), reconnecting" % (reason,)
+        self.bot.disconnected()
+        connector.connect()
+
 
 from twisted.internet import reactor, protocol, defer
 from twisted.web import client
@@ -39,231 +130,72 @@ import feedparser
 
 import time, sys, StringIO
 
-DEFERRED_GROUPS = 60  # Number of simultaneous connections
-INTER_QUERY_TIME = 300 # Max Age (in seconds) of each feed in the cache
 TIMEOUT = 30 # Timeout in seconds for the web request
-
-# This dict structure will be the following:
-# { 'URL': (TIMESTAMP, value) }
-cache = {}
 
 class FeederProtocol(object):
     def __init__(self):
         self.parsed = 1
         self.with_errors = 0
         self.error_list = []
-        
-    def isCached(self, site):
-        # Try to get the tuple (TIMESTAMP, FEED_STRUCT) from the dict if it has
-        # already been downloaded. Otherwise assign None to already_got
-        already_got = cache.get(site[0], None)
-
-        # Ok guys, we got it cached, let's see what we will do
-        if already_got:
-            # Well, it's cached, but will it be recent enough?
-            elapsed_time = time.time() - already_got[0]
-            
-            # Woooohooo it is, elapsed_time is less than INTER_QUERY_TIME so I
-            # can get the page from the memory, recent enough
-            if elapsed_time < INTER_QUERY_TIME:
-                return True
-            
-            else:    
-                # Uhmmm... actually it's a bit old, I'm going to get it from the
-                # Net then, then I'll parse it and then I'll try to memoize it
-                # again
-                return False
-            
-        else: 
-            # Well... We hadn't it cached in, so we need to get it from the Net
-            # now, It's useless to check if it's recent enough, it's not there.
-            return False
 
     def gotError(self, traceback, extra_args):
-        # An Error as occurred, print traceback infos and go on
         print traceback, extra_args
         self.with_errors += 1
         self.error_list.append(extra_args)
-        print "="*20
-        print "Trying to go on..."
-        
-    def getPageFromMemory(self, data, key=None):
-        # Getting the second element of the tuple which is the parsed structure
-        # of the feed at address key, the first element of the tuple is the
-        # timestamp
-        print "Getting from memory..."
-        return defer.succeed(cache.get(key,key)[1])
 
     def parseFeed(self, feed):
-        # This is self explaining :)
-        print "parsing..."
         try:
-            feed+''
             parsed = feedparser.parse(StringIO.StringIO(feed))
         except TypeError:
             parsed = feedparser.parse(StringIO.StringIO(str(feed)))
-        print "parsed feed"
         return parsed
-   
-    def memoize(self, feed, addr):
-        # feed is the raw structure, just as returned from feedparser.parse()
-        # while addr is the address from which the feed was got.
-        print "Memoizing",addr,"..."
-        if cache.get(addr, None):
-            cache[addr] = (time.time(), feed)
-        else:
-            cache.setdefault(addr, (time.time(),feed))
-        return feed
-    
-    def workOnPage(self, parsed_feed, addr):
-        # As usual, addr is the feed address and file is the file in
-        # which you can eventually save the structure.
-        print "-"*20
-        print "finished retrieving"
-        print "Feed Version:",parsed_feed.get('version','Unknown')
-        
-        #
-        #  Uncomment the following if you want to print the feeds
-        #
-        chan = parsed_feed.get('channel', None)
-        if chan:
-            print chan.get('title', '')
-            #print chan.get('link', '')
-            #print chan.get('tagline', '')
-            #print chan.get('description','')
-        print "-"*20
-        items = parsed_feed.get('items', None)
-        if items:
-            for item in items:
-                title = item.get('title','')
-                if 'merge request' in title:
-                    print title
- 
-                #print '\tDate: ', item.get('date', '')
-                #print '\tLink: ', item.get('link', '')
-                #print '\tDescription: ', item.get('description', '')
-                #print '\tSummary: ', item.get('summary','')
-                #print "-"*20
-        return parsed_feed
-        
-    def stopWorking(self, data=None):
-        print "Closing connection number %d..."%(self.parsed,)
-        print "=-"*20
-        
-        # This is here only for testing. When a protocol/interface will be
-        # created to communicate with this rss-aggregator server, we won't need
-        # to die after we parsed some feeds just one time.
-        self.parsed += 1
-        print self.parsed,  self.END_VALUE
-        if self.parsed > self.END_VALUE:   #
-            print "Closing all..."         #
-            for i in self.error_list:      #  Just for testing sake
-                print i                    #
-            print len(self.error_list)     #
-            reactor.stop()                 #
 
     def getPage(self, data, args):
-        return client.getPage(args,timeout=TIMEOUT)
+        return client.getPage(args, timeout=TIMEOUT)
 
     def printStatus(self, data=None):
-        print "Starting feed group..."
-            
-    def start(self, data=None, std_alone=True):
+        print "Reading feed"
+
+    def start(self, feeds, callback):
         d = defer.succeed(self.printStatus())
-        for feed in data:
-        
-            # Now we start telling the reactor that it has
-            # to get all the feeds one by one...
-            cached = self.isCached(feed)
-            if not cached: 
-                # When the feed is not cached, it's time to
-                # go and get it from the web directly
-                d.addCallback(self.getPage, feed[0])
-                d.addErrback(self.gotError, (feed[0], 'getting'))
-                
-                # Parse the feed and if there's some errors call self.gotError
-                d.addCallback(self.parseFeed)
-                d.addErrback(self.gotError, (feed[0], 'parsing'))
-                
-                # Now memoize it, if there's some error call self.getError
-                d.addCallback(self.memoize, feed[0])
-                d.addErrback(self.gotError, (feed[0], 'memoizing'))
-                
-            else: # If it's cached
-                d.addCallback(self.getPageFromMemory, feed[0])
-                d.addErrback(self.gotError, (feed[0], 'getting from memory'))
-            
-            # When you get the raw structure you can work on it
-            # to format in the best way you can think of.
-            # For any error call self.gotError.
-            d.addCallback(self.workOnPage, feed[0])
-            d.addErrback(self.gotError, (feed[0], 'working on page'))
-            
-            # And when the for loop is ended we put 
-            # stopWorking on the callback for the last 
-            # feed gathered
-            # This is only for testing purposes
-            if std_alone:
-                d.addCallback(self.stopWorking)
-                d.addErrback(self.gotError, (feed[0], 'while stopping'))
-        if not std_alone:
-            return d
+        for feed in feeds:
+
+            # Fetch page
+            d.addCallback(self.getPage, feed)
+            d.addErrback(self.gotError, (feed, 'getting'))
+
+            # Parse the feed
+            d.addCallback(self.parseFeed)
+            d.addErrback(self.gotError, (feed, 'parsing'))
+
+            # Process it
+            d.addCallback(callback)
+            d.addErrback(self.gotError, (feed, 'processing'))
+
+        return d
 
 class FeederFactory(protocol.ClientFactory):
     protocol = FeederProtocol()
-    def __init__(self, std_alone=False):
-        self.feeds = self.getFeeds()
-        self.std_alone = std_alone
-        
+    def __init__(self):
         self.protocol.factory = self
-        self.protocol.END_VALUE = len(self.feeds) # this is just for testing
 
-        if std_alone:
-            self.start(self.feeds)
-
-    def start(self, addresses):
-        # Divide into groups all the feeds to download
-        if len(addresses) > DEFERRED_GROUPS:
-            url_groups = [[] for x in xrange(DEFERRED_GROUPS)]
-            for i, addr in enumerate(addresses):
-                url_groups[i%DEFERRED_GROUPS].append(addr)
-        else:
-            url_groups = [[addr] for addr in addresses]
-            
-        for group in url_groups:
-            if not self.std_alone:
-                return self.protocol.start(group, self.std_alone)
-            else:
-                self.protocol.start(group, self.std_alone)
-
-    def getFeeds(self, where=None):
-        # This is used when you call a COMPLETE refresh of the feeds,
-        # or for testing purposes
-        #print "getting feeds"
-        # This is to get the feeds we want
-        if not where: # We don't have a database, then we use the local
-                      # variabile rss_feeds
-            return rss_feeds
-        else: return None
+    def start(self, feeds, callback):
+        return self.protocol.start(feeds, callback)
 
 
-import sys
 from twisted.internet import reactor
 
 if __name__ == "__main__":
 
+    # RSS
+    feed_url = 'http://gitorious.org/maliit.atom'
+
     # Irc bot
-    channel = '#jonnor'
+    channel = '#maliit'
     botname = 'maliit-gitorious'
     server = 'irc.freenode.net'
     port = 6667
-    reactor.connectTCP(server, port, IrcBotFactory(channel, botname))
+    reactor.connectTCP(server, port, IrcBotFactory(channel, botname, [feed_url]))
 
-    # RSS
-    feed_url = 'http://gitorious.org/maliit.atom'
-    rss_feeds = [(feed_url,)]
-    f = FeederFactory()
-    f.start([[feed_url]])
-    
     # Go!
     reactor.run()
