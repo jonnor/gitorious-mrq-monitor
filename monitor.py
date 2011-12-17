@@ -2,6 +2,11 @@ from twisted.words.protocols import irc
 from twisted.internet import protocol, task
 
 class GitoriousMergeRequestMessager(object):
+    """Process Gitorious RSS and report messages for new merge requests.
+
+    Call processRss on it to let it process an updated RSS feed.
+    For each new message, message_callback as passed in the constructor
+    will be called."""
 
     @staticmethod
     def items_equal(item1, item2):
@@ -53,6 +58,10 @@ class GitoriousMergeRequestMessager(object):
         return msg
 
 class IrcBot(object):
+    """Bot "business logic". Periodically polls the RSS feed and
+    processes it."""
+
+    # FIXME: we don't support multiple feeds, fix the API
 
     def __init__(self, feeds):
         self.check_rss_task = task.LoopingCall(self.checkRssFeed)
@@ -61,9 +70,11 @@ class IrcBot(object):
         self.feeds = feeds
 
     def connected(self):
-        self.check_rss_task.start(60*5)
+        # TODO: rename to start() ?
+        self.check_rss_task.start(60*5) # Every 5 minutes
 
     def disconnected(self):
+        # TODO: rename to stop() ?
         self.check_rss_task.stop()
 
     def checkRssFeed(self):
@@ -74,9 +85,18 @@ class IrcBot(object):
         self.processor.processRss(parsed_feed)
 
     def outputMessage(self, message):
+        # FIXME: should not have knowledge about the protocol
+        # Instead pass in a callback that gets called here?
         self.protocol.msg(self.protocol.factory.channel, str(message))
 
 class IrcProtocol(irc.IRCClient):
+
+    """Responsible for basic protocol handling,
+    independent from the logic of the client. Joining the channel,
+    and informing the business logic part about the current state.
+
+    Note: This only has the lifetime of the connection/session,
+    hence why the business logic is stored on the factory."""
 
     @property
     def nickname(self):
@@ -98,6 +118,8 @@ class IrcProtocol(irc.IRCClient):
         print 'Left %s.' % (channel,)
 
 class IrcBotFactory(protocol.ClientFactory):
+    """Responsible for connecting to IRC, handling reconnects,
+    and creating a protocol instance and associated business logic."""
 
     def __init__(self, channel, nickname, feeds):
         self.channel = channel
@@ -151,6 +173,9 @@ class FeederProtocol(object):
         return parsed
 
     def getPage(self, data, args):
+        # TODO: be nice and use HTTP conditional GET to reduce load
+        # http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers/
+        # http://www.phppatterns.com/docs/develop/twisted_aggregator
         return client.getPage(args, timeout=TIMEOUT)
 
     def printStatus(self, data=None):
