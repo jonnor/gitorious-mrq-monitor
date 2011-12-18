@@ -12,10 +12,17 @@ Twisted
 feedparser
 
 == Usage ==
- $ export PYTHONPATH=./
- $ ./bin/gitorious-mrq-monitor https://gitorious.org/myproject.atom --irc-channel=#mychannel --irc-nick=mybot
+From source tree:
+
+ export PYTHONPATH=./
+ ./bin/gitorious-mrq-monitor myproject
+
+Install and use:
+
+ python setup.py install
+ gitorious-mrq-monitor myproject
+
+See --help for more options.
 
 == TODO ==
-- Improve formatting of messages
-
-See also TODO and FIXME comments in the code.
+See TODO and FIXME comments in the code.

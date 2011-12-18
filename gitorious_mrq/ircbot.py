@@ -1,9 +1,11 @@
-import HTMLParser
+import HTMLParser, re
 
 from twisted.words.protocols import irc
 from twisted.internet import protocol, task
 
 from gitorious_mrq import feedreader
+
+FEED_POLL_INTERVAL = 5*60 # Every 5 minutes
 
 class GitoriousMergeRequestMessager(object):
     """Process Gitorious RSS and report messages for new merge requests.
@@ -16,8 +18,10 @@ class GitoriousMergeRequestMessager(object):
     def items_equal(item1, item2):
         return False
 
-    def __init__(self, message_callback):
+    def __init__(self, host, project, message_callback):
         self.callback = message_callback
+        self.project = project
+        self.host = host
         self.old_items = []
 
         # Used to avoid outputting RSS items that exists in the feed
@@ -49,17 +53,61 @@ class GitoriousMergeRequestMessager(object):
 
         msg = None
 
+        # Typical title
+        """jonnor updated merge request maliit/maliit-buildbot-configuration #1&#x2192; State changed from Go ahead and merge to Updated"""
+
         # We are only interested in merge requests,
         # but not in comments on them (too noisy)
         title = item.get('title', '')
+
         if 'merge request' in title and not 'commented' in title:
             msg = '%s' % title
 
             h = HTMLParser.HTMLParser()
             msg = h.unescape(msg)
-            # - link to merge request
+
+            mrq_link = '%(host)s/%(project)s/%(repository)s/merge_requests/%(mrq)s'
+
+            # PERF: Could compile the RE
+            regexp = r'.*(merge request %(project)s/(\S*)\s*#(\d*)).*' % {'project': self.project}
+            print regexp
+            match = re.match(regexp, msg)
+
+            if match is None:
+                print msg
+                return msg
+
+            string_to_linkify, repo, mrq_no = match.groups()
+
+            linked_str = (mrq_link + ' ') % {'host': self.host, 'project': self.project, 'repository': repo, 'mrq': mrq_no}
+            msg = msg.replace(string_to_linkify, linked_str)
 
         return msg
+
+# TODO: fix up the design
+# Issue: It is hard to add a monitor that is independent from the ircbot
+# Mainly because IrcBot should not be owned by the IrcBotFactory
+#
+# Solution: Invert the ownership of IrcBot and IrcBotFactory
+# Create class Monitor(IService)
+# Make it have the responsibility IrcBot has now
+# Have a getIrcBot() method that returns
+#
+# See http://twistedmatrix.com/documents/current/core/howto/tutorial/style.html
+
+# NOTE: If there is a need to make this stuff 'general'
+# one could refactor the responsibilities of the service into two aspects:
+# IMrqStatusProvider - provides updates about (example impl: RSS feed, gitorious webhooks*)
+# IMrqStatusNotifier - notifies about such updates (example impl: IRC, stdout, website)
+#
+# * if they ever materialize
+#
+# The Monitor service is then responsible for creating instances of such components
+# and hooking them up to eachother.
+#
+# For this to work sanely there would need to be a generic data-structure
+# describing the merge request. As long as the only way to get the data is RSS
+# this is very likely not worth it.
 
 class IrcBot(object):
     """Bot "business logic". Periodically polls the RSS feed and
@@ -67,15 +115,16 @@ class IrcBot(object):
 
     # FIXME: we don't support multiple feeds, fix the API
 
-    def __init__(self, feeds):
+    def __init__(self, host, project):
         self.check_rss_task = task.LoopingCall(self.checkRssFeed)
-        self.processor = GitoriousMergeRequestMessager(self.outputMessage)
+        self.processor = GitoriousMergeRequestMessager(host, project, self.outputMessage)
         self.protocol = None
-        self.feeds = feeds
+        self.host = host
+        self.project = project
         self.is_running = False
 
     def start(self):
-        self.check_rss_task.start(60*5) # Every 5 minutes
+        self.check_rss_task.start(FEED_POLL_INTERVAL)
         self.is_running = True
 
     def stop(self):
@@ -84,8 +133,9 @@ class IrcBot(object):
         self.is_running = False
 
     def checkRssFeed(self):
+        feed = '%s/%s.atom' % (self.host, self.project)
         f = feedreader.FeederFactory()
-        d = f.start(self.feeds, self.processNewRss)
+        d = f.start([feed], self.processNewRss)
 
     def processNewRss(self, parsed_feed):
         self.processor.processRss(parsed_feed)
@@ -129,13 +179,12 @@ class IrcBotFactory(protocol.ClientFactory):
 
     protocol = IrcProtocol
 
-    def __init__(self, channel, nickname, feeds):
+    def __init__(self, channel, nickname, host_url, project):
 
         self.channel = channel
         self.nickname = nickname
-        self.feeds = feeds
 
-        self.bot = IrcBot(feeds)
+        self.bot = IrcBot(host_url, project)
 
     def buildProtocol(self, addr):
         protocol = IrcProtocol()
