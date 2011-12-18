@@ -1,3 +1,5 @@
+import HTMLParser
+
 from twisted.words.protocols import irc
 from twisted.internet import protocol, task
 
@@ -53,8 +55,8 @@ class GitoriousMergeRequestMessager(object):
         if 'merge request' in title and not 'commented' in title:
             msg = '%s' % title
 
-            # TODO: more pretty output
-            # - escape HTML entities
+            h = HTMLParser.HTMLParser()
+            msg = h.unescape(msg)
             # - link to merge request
 
         return msg
@@ -91,7 +93,7 @@ class IrcBot(object):
     def outputMessage(self, message):
         # FIXME: should not have knowledge about the protocol
         # Instead pass in a callback that gets called here?
-        self.protocol.msg(self.protocol.factory.channel, str(message))
+        self.protocol.msg(self.protocol.factory.channel, message.encode('ascii', 'ignore'))
 
 class IrcProtocol(irc.IRCClient):
 
