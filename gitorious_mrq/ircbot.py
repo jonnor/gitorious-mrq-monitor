@@ -1,6 +1,8 @@
 from twisted.words.protocols import irc
 from twisted.internet import protocol, task
 
+from gitorious_mrq import feedreader
+
 class GitoriousMergeRequestMessager(object):
     """Process Gitorious RSS and report messages for new merge requests.
 
@@ -68,17 +70,19 @@ class IrcBot(object):
         self.processor = GitoriousMergeRequestMessager(self.outputMessage)
         self.protocol = None
         self.feeds = feeds
+        self.is_running = False
 
-    def connected(self):
-        # TODO: rename to start() ?
+    def start(self):
         self.check_rss_task.start(60*5) # Every 5 minutes
+        self.is_running = True
 
-    def disconnected(self):
-        # TODO: rename to stop() ?
-        self.check_rss_task.stop()
+    def stop(self):
+        if self.is_running:
+            self.check_rss_task.stop()
+        self.is_running = False
 
     def checkRssFeed(self):
-        f = FeederFactory()
+        f = feedreader.FeederFactory()
         d = f.start(self.feeds, self.processNewRss)
 
     def processNewRss(self, parsed_feed):
@@ -107,12 +111,12 @@ class IrcProtocol(irc.IRCClient):
         return 1 # Limit rate to 1 line per second
 
     def signedOn(self):
-        print "Signed on as %s." % (self.factory.nickname,)
         self.join(self.factory.channel)
+        print "Signed on as %s." % (self.factory.nickname,)
 
     def joined(self, channel):
         print "Joined %s." % (channel,)
-        self.factory.bot.connected()
+        self.factory.bot.start()
 
     def left(self, channel):
         print 'Left %s.' % (channel,)
@@ -121,7 +125,10 @@ class IrcBotFactory(protocol.ClientFactory):
     """Responsible for connecting to IRC, handling reconnects,
     and creating a protocol instance and associated business logic."""
 
+    protocol = IrcProtocol
+
     def __init__(self, channel, nickname, feeds):
+
         self.channel = channel
         self.nickname = nickname
         self.feeds = feeds
@@ -136,91 +143,11 @@ class IrcBotFactory(protocol.ClientFactory):
 
     def clientConnectionLost(self, connector, reason):
         print "Lost connection (%s), reconnecting." % (reason,)
-        self.bot.disconnected()
+        self.bot.stop()
         connector.connect()
 
     def clientConnectionFailed(self, connector, reason):
         print "Could not connect: (%s), reconnecting" % (reason,)
-        self.bot.disconnected()
+        self.bot.stop()
         connector.connect()
 
-
-from twisted.internet import reactor, protocol, defer
-from twisted.web import client
-
-import feedparser
-
-import time, sys, StringIO
-
-TIMEOUT = 30 # Timeout in seconds for the web request
-
-class FeederProtocol(object):
-    def __init__(self):
-        self.parsed = 1
-        self.with_errors = 0
-        self.error_list = []
-
-    def gotError(self, traceback, extra_args):
-        print traceback, extra_args
-        self.with_errors += 1
-        self.error_list.append(extra_args)
-
-    def parseFeed(self, feed):
-        try:
-            parsed = feedparser.parse(StringIO.StringIO(feed))
-        except TypeError:
-            parsed = feedparser.parse(StringIO.StringIO(str(feed)))
-        return parsed
-
-    def getPage(self, data, args):
-        # TODO: be nice and use HTTP conditional GET to reduce load
-        # http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers/
-        # http://www.phppatterns.com/docs/develop/twisted_aggregator
-        return client.getPage(args, timeout=TIMEOUT)
-
-    def printStatus(self, data=None):
-        print "Reading feed"
-
-    def start(self, feeds, callback):
-        d = defer.succeed(self.printStatus())
-        for feed in feeds:
-
-            # Fetch page
-            d.addCallback(self.getPage, feed)
-            d.addErrback(self.gotError, (feed, 'getting'))
-
-            # Parse the feed
-            d.addCallback(self.parseFeed)
-            d.addErrback(self.gotError, (feed, 'parsing'))
-
-            # Process it
-            d.addCallback(callback)
-            d.addErrback(self.gotError, (feed, 'processing'))
-
-        return d
-
-class FeederFactory(protocol.ClientFactory):
-    protocol = FeederProtocol()
-    def __init__(self):
-        self.protocol.factory = self
-
-    def start(self, feeds, callback):
-        return self.protocol.start(feeds, callback)
-
-
-from twisted.internet import reactor
-
-if __name__ == "__main__":
-
-    # RSS
-    feed_url = 'http://gitorious.org/maliit.atom'
-
-    # Irc bot
-    channel = '#maliit'
-    botname = 'maliit-gitorious'
-    server = 'irc.freenode.net'
-    port = 6667
-    reactor.connectTCP(server, port, IrcBotFactory(channel, botname, [feed_url]))
-
-    # Go!
-    reactor.run()

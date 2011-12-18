@@ -1,5 +1,7 @@
 Gitorious Merge Request Monitor
-A simple IRC bot for reporting the status of Gitorious merge requests.
+- A simple service for following the status of Gitorious merge requests.
+
+Currently supports reporting status over IRC.
 
 Author: Jon Nordby
 License: GPLv3+
@@ -7,14 +9,13 @@ License: GPLv3+
 == Dependencies ==
 Python 2.x
 Twisted
-feedparser Python module
+feedparser
 
 == Usage ==
-- Change values in monitor.py
-- Run python monitor.py
+ $ export PYTHONPATH=./
+ $ ./bin/gitorious-mrq-monitor https://gitorious.org/myproject.atom --irc-channel=#mychannel --irc-nick=mybot
 
 == TODO ==
-- Proper configuration mechanism
 - distutils packaging for deployment
 - Improve formatting of messages
 
