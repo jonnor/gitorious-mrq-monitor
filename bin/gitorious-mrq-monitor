@@ -15,6 +15,9 @@ if __name__ == "__main__":
     parser.add_option('', "--host", default='http://gitorious.org',
                       help="The URL to the Gitorious instance hosting the project.")
 
+    parser.add_option('', "--poll-interval", default=5*60,
+                      help="The interval to poll the feed and look for updates (in seconds).")
+
     # Options for IRC
     parser.add_option('', "--irc-server", default='irc.freenode.net',
                       help="The server to connect IRC bot to.")
@@ -38,6 +41,6 @@ if __name__ == "__main__":
     if options.irc_channel == '#$project':
         options.irc_channel = "#%s" % project
 
-    f = ircbot.IrcBotFactory(options.irc_channel, options.irc_nick, options.host, project)
+    f = ircbot.IrcBotFactory(options.irc_channel, options.irc_nick, options.host, project, options.poll_interval)
     reactor.connectTCP(options.irc_server, options.irc_port, f)
     reactor.run()

@@ -70,7 +70,7 @@ class GitoriousMergeRequestMessager(object):
 
             # PERF: Could compile the RE
             regexp = r'.*(merge request %(project)s/(\S*)\s*#(\d*)).*' % {'project': self.project}
-            print regexp
+
             match = re.match(regexp, msg)
 
             if match is None:
@@ -115,16 +115,17 @@ class IrcBot(object):
 
     # FIXME: we don't support multiple feeds, fix the API
 
-    def __init__(self, host, project):
+    def __init__(self, host, project, poll_interval):
         self.check_rss_task = task.LoopingCall(self.checkRssFeed)
         self.processor = GitoriousMergeRequestMessager(host, project, self.outputMessage)
         self.protocol = None
         self.host = host
         self.project = project
+        self.poll_interval = poll_interval
         self.is_running = False
 
     def start(self):
-        self.check_rss_task.start(FEED_POLL_INTERVAL)
+        self.check_rss_task.start(self.poll_interval)
         self.is_running = True
 
     def stop(self):
@@ -179,12 +180,12 @@ class IrcBotFactory(protocol.ClientFactory):
 
     protocol = IrcProtocol
 
-    def __init__(self, channel, nickname, host_url, project):
+    def __init__(self, channel, nickname, host_url, project, poll_interval):
 
         self.channel = channel
         self.nickname = nickname
 
-        self.bot = IrcBot(host_url, project)
+        self.bot = IrcBot(host_url, project, poll_interval)
 
     def buildProtocol(self, addr):
         protocol = IrcProtocol()
