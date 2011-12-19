@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:gts="http://gitorious.org/schema">
+  <id>tag:gitorious.org,2005:/maliit</id>
+  <link type="text/html" rel="alternate" href="http://gitorious.org"/>
+  <link type="application/atom+xml" rel="self" href="http://gitorious.org/maliit.atom"/>
+  <title>Gitorious: maliit activity</title>
+  <updated>2011-12-18T14:34:40Z</updated>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42841293</id>
+    <published>2011-12-18T14:34:40Z</published>
+    <updated>2011-12-18T14:34:40Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor requested merge of ~jonnor/maliit/jonnors-maliit-buildbot-configuration with maliit-buildbot-configuration in merge request maliit/maliit-buildbot-configuration #2</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; requested merge of &lt;a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration"&gt;~jonnor/maliit/jonnors-maliit-buildbot-configuration&lt;/a&gt; with &lt;a href="/maliit/maliit-buildbot-configuration"&gt;maliit-buildbot-configuration&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/2"&gt;maliit/maliit-buildbot-configuration #2&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/2"&gt;&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840864</id>
+    <published>2011-12-18T01:58:02Z</published>
+    <updated>2011-12-18T01:58:02Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from Updated to Need info</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;Updated&lt;/span&gt; to &lt;span class="changed"&gt;Need info&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;df&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840861</id>
+    <published>2011-12-18T01:53:45Z</published>
+    <updated>2011-12-18T01:53:45Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from Go ahead and merge to Updated</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;Go ahead and merge&lt;/span&gt; to &lt;span class="changed"&gt;Updated&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;kfk&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840852</id>
+    <published>2011-12-18T01:48:59Z</published>
+    <updated>2011-12-18T01:48:59Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor commented  on merge request maliit/maliit-plugins #24</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-plugins/merge_requests/24#comment_80440"&gt;maliit/maliit-plugins #24&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Should use QDir + QDir::absoluteFilePath()&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840848</id>
+    <published>2011-12-18T01:42:02Z</published>
+    <updated>2011-12-18T01:42:02Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from Recommended to merge to Go ahead and merge</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;Recommended to merge&lt;/span&gt; to &lt;span class="changed"&gt;Go ahead and merge&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;dfd&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840783</id>
+    <published>2011-12-18T00:25:30Z</published>
+    <updated>2011-12-18T00:25:30Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas requested merge of ~mikhas/maliit/plugins with maliit-plugins in merge request maliit/maliit-plugins #24</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; requested merge of &lt;a href="/~mikhas/maliit/plugins"&gt;~mikhas/maliit/plugins&lt;/a&gt; with &lt;a href="/maliit/maliit-plugins"&gt;maliit-plugins&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-plugins/merge_requests/24"&gt;maliit/maliit-plugins #24&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-plugins/merge_requests/24"&gt;Done in 3 steps:
+
+1. Move data files to common directory so that renderer (in libmaliit-keyboar...&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840779</id>
+    <published>2011-12-18T00:18:31Z</published>
+    <updated>2011-12-18T00:18:31Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas pushed 2 commits  to ~mikhas/maliit/plugins:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; pushed &lt;a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42840779" gts:url="/events/42840779/commits" id="commits_in_event_42840779_toggler"&gt;2 commits&lt;/a&gt;  to &lt;a href="/~mikhas/maliit/plugins/commits/master"&gt;~mikhas/maliit/plugins:master&lt;/a&gt;. &lt;a href="/maliit/plugins/commit/3fb3bd998f0e8e6780a6a5bf501b2221fe6b1b1b/diffs/fb2b4240e6dc88a30310a3889ece4313265c4f8d"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from 3fb3bd9 to fb2b424&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840711</id>
+    <published>2011-12-17T23:19:05Z</published>
+    <updated>2011-12-17T23:19:05Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from Revise and update to Recommended to merge</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;Revise and update&lt;/span&gt; to &lt;span class="changed"&gt;Recommended to merge&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;d&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840623</id>
+    <published>2011-12-17T21:49:35Z</published>
+    <updated>2011-12-17T21:49:35Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas pushed 2 commits  to ~mikhas/maliit/plugins:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; pushed &lt;a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42840623" gts:url="/events/42840623/commits" id="commits_in_event_42840623_toggler"&gt;2 commits&lt;/a&gt;  to &lt;a href="/~mikhas/maliit/plugins/commits/master"&gt;~mikhas/maliit/plugins:master&lt;/a&gt;. &lt;a href="/maliit/plugins/commit/6ff99983f4a064200fcac1ed86e77b7042f7871e/diffs/3fb3bd998f0e8e6780a6a5bf501b2221fe6b1b1b"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from 6ff9998 to 3fb3bd9&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840350</id>
+    <published>2011-12-17T19:00:46Z</published>
+    <updated>2011-12-17T19:00:46Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>desertconsulting commented  on merge request maliit/maliit-framework #127</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~desertconsulting"&gt;desertconsulting&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-framework/merge_requests/127#comment_80434"&gt;maliit/maliit-framework #127&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;it seems the best way to avoid an ABI break&lt;p&gt;
+</content>
+    <author>
+      <name>desertconsulting</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840255</id>
+    <published>2011-12-17T17:54:39Z</published>
+    <updated>2011-12-17T17:54:39Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas requested merge of ~mikhas/maliit/plugins with maliit-plugins in merge request maliit/maliit-plugins #23</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; requested merge of &lt;a href="/~mikhas/maliit/plugins"&gt;~mikhas/maliit/plugins&lt;/a&gt; with &lt;a href="/maliit/maliit-plugins"&gt;maliit-plugins&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-plugins/merge_requests/23"&gt;maliit/maliit-plugins #23&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-plugins/merge_requests/23"&gt;&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840254</id>
+    <published>2011-12-17T17:53:49Z</published>
+    <updated>2011-12-17T17:53:49Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas pushed 502 commits  to ~mikhas/maliit/plugins:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; pushed &lt;a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42840254" gts:url="/events/42840254/commits" id="commits_in_event_42840254_toggler"&gt;502 commits&lt;/a&gt;  to &lt;a href="/~mikhas/maliit/plugins/commits/master"&gt;~mikhas/maliit/plugins:master&lt;/a&gt;. &lt;a href="/maliit/plugins/commit/72079f068b8ce46d77e3f08d56b58fc203da3eb7/diffs/6ff99983f4a064200fcac1ed86e77b7042f7871e"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from 72079f0 to 6ff9998&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840003</id>
+    <published>2011-12-17T15:38:52Z</published>
+    <updated>2011-12-17T15:38:52Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas commented  on merge request maliit/maliit-framework #126</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-framework/merge_requests/126#comment_80430"&gt;maliit/maliit-framework #126&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;This is what I was thinking:
+https://gitorious.org/maliit/maliit-framework/merge_requests/127
+
+Ugly, but at least no API break. But I feel it's ...&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42840002</id>
+    <published>2011-12-17T15:35:15Z</published>
+    <updated>2011-12-17T15:35:15Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas requested merge of ~mikhas/maliit/fw with maliit-framework in merge request maliit/maliit-framework #127</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; requested merge of &lt;a href="/~mikhas/maliit/fw"&gt;~mikhas/maliit/fw&lt;/a&gt; with &lt;a href="/maliit/maliit-framework"&gt;maliit-framework&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-framework/merge_requests/127"&gt;maliit/maliit-framework #127&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-framework/merge_requests/127"&gt;&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839995</id>
+    <published>2011-12-17T15:34:05Z</published>
+    <updated>2011-12-17T15:34:05Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas pushed 17 commits  to ~mikhas/maliit/fw:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; pushed &lt;a href="/~mikhas/maliit/fw/commits/master" class="commit_event_toggler" gts:id="42839995" gts:url="/events/42839995/commits" id="commits_in_event_42839995_toggler"&gt;17 commits&lt;/a&gt;  to &lt;a href="/~mikhas/maliit/fw/commits/master"&gt;~mikhas/maliit/fw:master&lt;/a&gt;. &lt;a href="/maliit/fw/commit/9961129abd1e16aa963aab126c546f6422decba1/diffs/4a905b2a7ebaeea75da53755f4b7300c5513a8d2"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from 9961129 to 4a905b2&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839986</id>
+    <published>2011-12-17T15:25:30Z</published>
+    <updated>2011-12-17T15:25:30Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from Reviewing to Revise and update</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;Reviewing&lt;/span&gt; to &lt;span class="changed"&gt;Revise and update&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;state changes are important&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839984</id>
+    <published>2011-12-17T15:25:03Z</published>
+    <updated>2011-12-17T15:25:03Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor commented  on merge request maliit/maliit-buildbot-configuration #1</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1#comment_80427"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;comments should be ingnored&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839959</id>
+    <published>2011-12-17T15:10:40Z</published>
+    <updated>2011-12-17T15:10:40Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor commented  on merge request maliit/maliit-buildbot-configuration #1</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1#comment_80426"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;more comments&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839951</id>
+    <published>2011-12-17T15:05:07Z</published>
+    <updated>2011-12-17T15:05:07Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor commented  on merge request maliit/maliit-buildbot-configuration #1</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1#comment_80425"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;This is a comment&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839943</id>
+    <published>2011-12-17T14:59:48Z</published>
+    <updated>2011-12-17T14:59:48Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor updated merge request maliit/maliit-buildbot-configuration #1&amp;#x2192; State changed from New to Reviewing</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;New&lt;/span&gt; to &lt;span class="changed"&gt;Reviewing&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;State change test&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839922</id>
+    <published>2011-12-17T14:41:10Z</published>
+    <updated>2011-12-17T14:41:10Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor requested merge of ~jonnor/maliit/jonnors-maliit-buildbot-configuration with maliit-buildbot-configuration in merge request maliit/maliit-buildbot-configuration #1</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; requested merge of &lt;a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration"&gt;~jonnor/maliit/jonnors-maliit-buildbot-configuration&lt;/a&gt; with &lt;a href="/maliit/maliit-buildbot-configuration"&gt;maliit-buildbot-configuration&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;maliit/maliit-buildbot-configuration #1&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-buildbot-configuration/merge_requests/1"&gt;&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839910</id>
+    <published>2011-12-17T14:35:49Z</published>
+    <updated>2011-12-17T14:35:49Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor pushed 1 commit  to ~jonnor/maliit/jonnors-maliit-buildbot-configuration:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; pushed &lt;a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration/commits/master" class="commit_event_toggler" gts:id="42839910" gts:url="/events/42839910/commits" id="commits_in_event_42839910_toggler"&gt;1 commit&lt;/a&gt;  to &lt;a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration/commits/master"&gt;~jonnor/maliit/jonnors-maliit-buildbot-configuration:master&lt;/a&gt;. &lt;a href="/maliit/jonnors-maliit-buildbot-configuration/commit/b3a295f946188e00829d8925b2deda2be9a9ca81/diffs/73bf473754a8f727594601e40cb21e254e72500b"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from b3a295f to 73bf473&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42839909</id>
+    <published>2011-12-17T14:34:01Z</published>
+    <updated>2011-12-17T14:34:01Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>jonnor cloned maliit/maliit-buildbot-configuration</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~jonnor"&gt;jonnor&lt;/a&gt; cloned &lt;a href="/maliit/maliit-buildbot-configuration"&gt;maliit/maliit-buildbot-configuration&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;New repository is in &lt;a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration"&gt;jonnors-maliit-buildbot-configuration&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>jonnor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42838648</id>
+    <published>2011-12-16T17:48:16Z</published>
+    <updated>2011-12-16T17:48:16Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>araujo pushed 162 commits  to ~araujo/maliit/araujos-maliit-plugins:master. View diff</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~araujo"&gt;araujo&lt;/a&gt; pushed &lt;a href="/~araujo/maliit/araujos-maliit-plugins/commits/master" class="commit_event_toggler" gts:id="42838648" gts:url="/events/42838648/commits" id="commits_in_event_42838648_toggler"&gt;162 commits&lt;/a&gt;  to &lt;a href="/~araujo/maliit/araujos-maliit-plugins/commits/master"&gt;~araujo/maliit/araujos-maliit-plugins:master&lt;/a&gt;. &lt;a href="/maliit/araujos-maliit-plugins/commit/49da7e7a26d9b2f9c0bf4546e6b9420f7af8e7ab/diffs/199a669660172c2241b41a4787378713ea1de2d8"&gt;View diff&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;master changed from 49da7e7 to 199a669&lt;p&gt;
+</content>
+    <author>
+      <name>araujo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42838559</id>
+    <published>2011-12-16T16:54:12Z</published>
+    <updated>2011-12-16T16:54:12Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>desertconsulting commented  on merge request maliit/maliit-framework #126</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~desertconsulting"&gt;desertconsulting&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-framework/merge_requests/126#comment_80397"&gt;maliit/maliit-framework #126&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;I'm sorry for the mistake, I'm new to git and to gitorious and didnt't read well instructions. I'm still workin on my code and it's a little too ea...&lt;p&gt;
+</content>
+    <author>
+      <name>desertconsulting</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42838344</id>
+    <published>2011-12-16T15:30:49Z</published>
+    <updated>2011-12-16T15:30:49Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas updated merge request maliit/maliit-framework #126&amp;#x2192; State changed from New to Need info</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; updated merge request &lt;a href="/maliit/maliit-framework/merge_requests/126"&gt;maliit/maliit-framework #126&lt;/a&gt;&lt;div class="meta_body"&gt;&amp;#x2192; State changed from &lt;span class="changed"&gt;New&lt;/span&gt; to &lt;span class="changed"&gt;Need info&lt;/span&gt;&lt;/div&gt;&lt;/p&gt;
+  &lt;p&gt;It was a mistake of me to have the filename in the c'tor without thinking about import directorie...&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42838331</id>
+    <published>2011-12-16T15:25:02Z</published>
+    <updated>2011-12-16T15:25:02Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas commented  on merge request maliit/maliit-framework #126</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-framework/merge_requests/126#comment_80389"&gt;maliit/maliit-framework #126&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;This works? Default parameter should be QStringList(), no?&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42838328</id>
+    <published>2011-12-16T15:22:25Z</published>
+    <updated>2011-12-16T15:22:25Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>mikhas commented  on merge request maliit/maliit-framework #126</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~mikhas"&gt;mikhas&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-framework/merge_requests/126#comment_80388"&gt;maliit/maliit-framework #126&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Making this virtual method pure seems like an ABI break.&lt;p&gt;
+</content>
+    <author>
+      <name>mikhas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42837957</id>
+    <published>2011-12-16T12:03:59Z</published>
+    <updated>2011-12-16T12:03:59Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>krnowak requested merge of ~krnowak/maliit/krnowaks-maliit-plugins with maliit-plugins in merge request maliit/maliit-plugins #22</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~krnowak"&gt;krnowak&lt;/a&gt; requested merge of &lt;a href="/~krnowak/maliit/krnowaks-maliit-plugins"&gt;~krnowak/maliit/krnowaks-maliit-plugins&lt;/a&gt; with &lt;a href="/maliit/maliit-plugins"&gt;maliit-plugins&lt;/a&gt; in merge request &lt;a href="/maliit/maliit-plugins/merge_requests/22"&gt;maliit/maliit-plugins #22&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/maliit/maliit-plugins/merge_requests/22"&gt;&lt;/a&gt;&lt;p&gt;
+</content>
+    <author>
+      <name>krnowak</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:gitorious.org,2005:Event/42837629</id>
+    <published>2011-12-16T08:02:49Z</published>
+    <updated>2011-12-16T08:02:49Z</updated>
+    <link type="text/html" rel="alternate" href="https://gitorious.org/maliit"/>
+    <title>krnowak commented  on merge request maliit/maliit-plugins #18</title>
+    <content type="html">  &lt;p&gt;&lt;a href="/~krnowak"&gt;krnowak&lt;/a&gt; commented  on merge request &lt;a href="/maliit/maliit-plugins/merge_requests/18#comment_80349"&gt;maliit/maliit-plugins #18&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Now it is merged. :)&lt;p&gt;
+</content>
+    <author>
+      <name>krnowak</name>
+    </author>
+  </entry>
+</feed>
