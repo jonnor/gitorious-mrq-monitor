@@ -1,0 +1,1593 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Maliit - Gitorious</title>
+<link href="/stylesheets/gts-common.css?1322725723" media="screen" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Nobile&amp;v1" type="text/css" rel="stylesheet">
+
+<script src="/javascripts/all.js?1322725757" type="text/javascript"></script>  <link href="/maliit.atom" rel="alternate" title="ATOM" type="application/atom+xml" /><link rel="vcs-git" href="git://gitorious.org/maliit/maliit-framework.git" title="maliit-framework in Maliit" /><link rel="vcs-http" href="https://git.gitorious.org/maliit/maliit-framework.git" title="maliit-framework in Maliit" /><link rel="vcs-ssh" href="git@gitorious.org:maliit/maliit-framework.git" title="maliit-framework in Maliit" /><link rel="vcs-git" href="git://gitorious.org/maliit/maliit-plugins.git" title="maliit-plugins in Maliit" /><link rel="vcs-http" href="https://git.gitorious.org/maliit/maliit-plugins.git" title="maliit-plugins in Maliit" /><link rel="vcs-ssh" href="git@gitorious.org:maliit/maliit-plugins.git" title="maliit-plugins in Maliit" /><link rel="vcs-git" href="git://gitorious.org/maliit/maliit-buildbot-configuration.git" title="maliit-buildbot-configuration in Maliit" /><link rel="vcs-http" href="https://git.gitorious.org/maliit/maliit-buildbot-configuration.git" title="maliit-buildbot-configuration in Maliit" /><link rel="vcs-ssh" href="git@gitorious.org:maliit/maliit-buildbot-configuration.git" title="maliit-buildbot-configuration in Maliit" /><link rel="vcs-git" href="git://gitorious.org/maliit/maliit-ubuntu-packaging-framework.git" title="maliit-ubuntu-packaging-framework in Maliit" /><link rel="vcs-http" href="https://git.gitorious.org/maliit/maliit-ubuntu-packaging-framework.git" title="maliit-ubuntu-packaging-framework in Maliit" /><link rel="vcs-ssh" href="git@gitorious.org:maliit/maliit-ubuntu-packaging-framework.git" title="maliit-ubuntu-packaging-framework in Maliit" /><link rel="vcs-git" href="git://gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git" title="maliit-ubuntu-packaging-plugins in Maliit" /><link rel="vcs-http" href="https://git.gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git" title="maliit-ubuntu-packaging-plugins in Maliit" /><link rel="vcs-ssh" href="git@gitorious.org:maliit/maliit-ubuntu-packaging-plugins.git" title="maliit-ubuntu-packaging-plugins in Maliit" /><!--[if IE 8]><link rel="stylesheet" href="/stylesheets/ie8.css" type="text/css"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/stylesheets/ie7.css" type="text/css"><![endif]-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-52238-3']);
+_gaq.push(['_setDomainName', '.gitorious.org'])
+_gaq.push(['_trackPageview']);
+(function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script>
+</head>
+<body id="projects">
+  <div id="wrapper">
+        <ul id="user-nav">
+      <li><a href="/">Dashboard</a></li>
+      
+    <li class="secondary"><a href="/~jonnor">~jonnor</a></li>
+  <li class="secondary messages unread">
+          <a href="/messages">168</a>      </li>
+  <li class="secondary subtle"><a href="/logout">Logout</a></li>
+    </ul>
+    <div id="header">
+      <h1 id="logo">
+        <a href="/"><img alt="Logo" src="/img/logo.png?1294322727" /></a>
+      </h1>
+      <ul id="menu">
+                  <li class="activity"><a href="/activities">Activities</a></li>
+          <li class="projects"><a href="/projects">Projects</a></li>
+          <li class="teams"><a href="/teams">Teams</a></li>
+              </ul>
+    </div>
+    <div id="top-bar">
+      <ul id="breadcrumbs">
+        <li class="project"><a href="/maliit">Maliit</a></li>      </ul>
+              <div id="searchbox">
+          
+
+
+<div class="search_bar">
+<form action="https://gitorious.org/search" method="get"><p>
+  <input class="text search-field round-5" id="q" name="q" type="text" /> 
+  <input type="submit" value="Search" class="search-submit round-5" />
+</p>  
+<p class="hint search-hint" style="display: none;">
+  eg. 'wrapper', 'category:python' or '"document database"'
+  </p>
+</form></div>
+        </div>
+          </div>
+    <div id="container" class="">
+      <div id="content" class="with_sidebar">
+        
+        
+
+<div class="content-container w-750" id="project-description">
+  <h1>Maliit</h1>
+  <p>Maliit provides a flexible and cross-platform input method framework, including a virtual keyboard. It has a plugin-based client-server architecture where applications act as clients and communicate with the Maliit server via input context plugins.
+        <a href="#more"
+           onclick="$('#description-rest-25594').toggle(); $(this).hide()">more&hellip;</a></p>
+        <div id="description-rest-25594" style="display:none;">
+
+<p>Maliit is an open source framework (LGPL 2) with open source plugins (BSD). There are also proprietary plugins. It runs on most GNU/Linux distributions.</p>
+
+<h1>Goals  </h1>
+
+<h2>Input method framework  </h2>
+
+<p>This includes support for traditional input methods such as hardware and virtual keyboards. More exotic input methods should also be possible, such as handwriting recognition and voice input, and special purpose input methods such as date/time pickers, tag clouds, etc.</p>
+
+<h2>Core input methods  </h2>
+
+<p>The default set of input methods should demonstrate the core capabilities of the framework and provide a good user experience that device manufacturers and integrators can use easily.</p>
+
+<h2>Third-party developers  </h2>
+
+<p>It should be easy to customize existing input methods or develop powerful new input methods, whether for profit, research or fun.</p>
+
+<h2>Community  </h2>
+
+<p>We welcome and encourage employees from different companies, freelancers, members of academia, hackers and volunteers. </p>
+</div></div>
+<div class="content-container w-750" id="repositories">
+      
+
+
+
+<div class="repository_meta">
+	<div class="repository-info">
+    		<h3 mainline>
+      		      			<a href="/maliit/maliit-framework">maliit-framework</a>    		</h3>
+    
+
+      <div class="repository-description page">
+	
+      <p>Core libraries of Maliit and server.</p>     </div>
+    <div class="infobox">
+    
+
+<ul>
+  <li>
+    <div class="clone_urls">
+      <form class="clone_urls_form">
+        <p><strong>Clone &amp; push urls</strong></p>
+              <p class="clone_radio">
+        <label for="git-81747">
+          <input type="radio" id="git-81747" name="url-81747" value="git://gitorious.org/maliit/maliit-framework.git" >GIT
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="http-81747">
+          <input type="radio" id="http-81747" name="url-81747" value="https://git.gitorious.org/maliit/maliit-framework.git" >HTTP
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="ssh-81747">
+          <input type="radio" id="ssh-81747" name="url-81747" value="git@gitorious.org:maliit/maliit-framework.git" checked="checked">SSH
+        </label>
+      </p>
+
+
+        <p class="clone-copy git_http_ssh">
+          <input type="text" readonly="readonly" id="clone-url-81747" value="" />
+          <a href="#help" id="clone-help-81747" class="clone-help-toggler">?</a>
+        </p>
+      </form>
+    </div>
+    <div id="clone-help-81747-box" class="clone-help-text" style="display:none;">
+                    <p>
+          Adding this repository as a pushable origin:
+<pre>
+# Add the push url to your already existing origin:
+git remote set-url --push origin git@gitorious.org:maliit/maliit-framework.git
+# to push the master branch to the origin remote we added above:
+git push origin master
+# after that you can just do:
+git push
+</pre></p>
+            <p>Cloning this repository:
+<pre>
+git clone git://gitorious.org/maliit/maliit-framework.git maliit-framework
+cd maliit-framework</pre></p>
+      <p>Add this repository as a remote to an existing local repository:
+<pre>
+git remote add maliit-framework git://gitorious.org/maliit/maliit-framework.git
+git fetch maliit-framework
+git checkout -b my-local-tracking-branch maliit-framework/master_or_other_branch
+</pre>
+      </p>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var standard = $("#git-81747:checked, #http-81747:checked, #ssh-81747:checked").val();
+
+        $('#clone-url-81747').val(standard);
+
+        $('#git-81747').click(function () {
+            var text = $('#git-81747').val();
+            $('#clone-url-81747').val(text);
+        });
+
+        $('#http-81747').click(function () {
+            var text = $('#http-81747').val();
+            $('#clone-url-81747').val(text);
+        });
+        $('#ssh-81747').click(function () {
+            var text = $('#ssh-81747').val();
+            $('#clone-url-81747').val(text);
+        });
+
+        $('#clone-url-81747').click(function () {
+            this.select();
+        });
+    });
+</script>
+
+ </div>
+ 	</div> <!-- End of repository-description -->
+
+	<div class="repository-links">
+		<div class="repository-link favorite button"><a href="/favorites?watchable_id=81747&amp;watchable_type=Repository" class="watch-link disabled round-10" data-request-method="post">Watch</a></div>		
+	  	<ul>
+	    	<li class="repository-link commit">
+	      	<a href="/maliit/maliit-framework/commits">Commit log</a>	    	</li>
+	    	<li class="repository-link tree">
+	      	<a href="/maliit/maliit-framework/trees">Source tree</a>	    	</li>
+	    	<li class="repository-link merge_requests">
+	      	<a href="/maliit/maliit-framework/merge_requests">Merge requests <small>(2)</small></a>	    	</li>
+
+					<li class="repository-link clone_repository">
+				<a href="/maliit/maliit-framework/clone">Clone repository</a>			</li>
+		 	  </ul>	
+		
+	</div>
+
+</div>
+      
+
+
+
+<div class="repository_meta">
+	<div class="repository-info">
+    		<h3 mainline>
+      		      			<a href="/maliit/maliit-plugins">maliit-plugins</a>    		</h3>
+    
+
+      <div class="repository-description page">
+	
+      <p>Contains the reference input method plugins, such as the Maliit Keyboard.</p>     </div>
+    <div class="infobox">
+    
+
+<ul>
+  <li>
+    <div class="clone_urls">
+      <form class="clone_urls_form">
+        <p><strong>Clone &amp; push urls</strong></p>
+              <p class="clone_radio">
+        <label for="git-81749">
+          <input type="radio" id="git-81749" name="url-81749" value="git://gitorious.org/maliit/maliit-plugins.git" >GIT
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="http-81749">
+          <input type="radio" id="http-81749" name="url-81749" value="https://git.gitorious.org/maliit/maliit-plugins.git" >HTTP
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="ssh-81749">
+          <input type="radio" id="ssh-81749" name="url-81749" value="git@gitorious.org:maliit/maliit-plugins.git" checked="checked">SSH
+        </label>
+      </p>
+
+
+        <p class="clone-copy git_http_ssh">
+          <input type="text" readonly="readonly" id="clone-url-81749" value="" />
+          <a href="#help" id="clone-help-81749" class="clone-help-toggler">?</a>
+        </p>
+      </form>
+    </div>
+    <div id="clone-help-81749-box" class="clone-help-text" style="display:none;">
+                    <p>
+          Adding this repository as a pushable origin:
+<pre>
+# Add the push url to your already existing origin:
+git remote set-url --push origin git@gitorious.org:maliit/maliit-plugins.git
+# to push the master branch to the origin remote we added above:
+git push origin master
+# after that you can just do:
+git push
+</pre></p>
+            <p>Cloning this repository:
+<pre>
+git clone git://gitorious.org/maliit/maliit-plugins.git maliit-plugins
+cd maliit-plugins</pre></p>
+      <p>Add this repository as a remote to an existing local repository:
+<pre>
+git remote add maliit-plugins git://gitorious.org/maliit/maliit-plugins.git
+git fetch maliit-plugins
+git checkout -b my-local-tracking-branch maliit-plugins/master_or_other_branch
+</pre>
+      </p>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var standard = $("#git-81749:checked, #http-81749:checked, #ssh-81749:checked").val();
+
+        $('#clone-url-81749').val(standard);
+
+        $('#git-81749').click(function () {
+            var text = $('#git-81749').val();
+            $('#clone-url-81749').val(text);
+        });
+
+        $('#http-81749').click(function () {
+            var text = $('#http-81749').val();
+            $('#clone-url-81749').val(text);
+        });
+        $('#ssh-81749').click(function () {
+            var text = $('#ssh-81749').val();
+            $('#clone-url-81749').val(text);
+        });
+
+        $('#clone-url-81749').click(function () {
+            this.select();
+        });
+    });
+</script>
+
+ </div>
+ 	</div> <!-- End of repository-description -->
+
+	<div class="repository-links">
+		<div class="repository-link favorite button"><a href="/favorites?watchable_id=81749&amp;watchable_type=Repository" class="watch-link disabled round-10" data-request-method="post">Watch</a></div>		
+	  	<ul>
+	    	<li class="repository-link commit">
+	      	<a href="/maliit/maliit-plugins/commits">Commit log</a>	    	</li>
+	    	<li class="repository-link tree">
+	      	<a href="/maliit/maliit-plugins/trees">Source tree</a>	    	</li>
+	    	<li class="repository-link merge_requests">
+	      	<a href="/maliit/maliit-plugins/merge_requests">Merge requests <small>(5)</small></a>	    	</li>
+
+					<li class="repository-link clone_repository">
+				<a href="/maliit/maliit-plugins/clone">Clone repository</a>			</li>
+		 	  </ul>	
+		
+	</div>
+
+</div>
+      
+
+
+
+<div class="repository_meta">
+	<div class="repository-info">
+    		<h3 mainline>
+      		      			<a href="/maliit/maliit-buildbot-configuration">maliit-buildbot-configuration</a>    		</h3>
+    
+
+    <div class="infobox">
+    
+
+<ul>
+  <li>
+    <div class="clone_urls">
+      <form class="clone_urls_form">
+        <p><strong>Clone &amp; push urls</strong></p>
+              <p class="clone_radio">
+        <label for="git-103727">
+          <input type="radio" id="git-103727" name="url-103727" value="git://gitorious.org/maliit/maliit-buildbot-configuration.git" >GIT
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="http-103727">
+          <input type="radio" id="http-103727" name="url-103727" value="https://git.gitorious.org/maliit/maliit-buildbot-configuration.git" >HTTP
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="ssh-103727">
+          <input type="radio" id="ssh-103727" name="url-103727" value="git@gitorious.org:maliit/maliit-buildbot-configuration.git" checked="checked">SSH
+        </label>
+      </p>
+
+
+        <p class="clone-copy git_http_ssh">
+          <input type="text" readonly="readonly" id="clone-url-103727" value="" />
+          <a href="#help" id="clone-help-103727" class="clone-help-toggler">?</a>
+        </p>
+      </form>
+    </div>
+    <div id="clone-help-103727-box" class="clone-help-text" style="display:none;">
+                    <p>
+          Adding this repository as a pushable origin:
+<pre>
+# Add the push url to your already existing origin:
+git remote set-url --push origin git@gitorious.org:maliit/maliit-buildbot-configuration.git
+# to push the master branch to the origin remote we added above:
+git push origin master
+# after that you can just do:
+git push
+</pre></p>
+            <p>Cloning this repository:
+<pre>
+git clone git://gitorious.org/maliit/maliit-buildbot-configuration.git maliit-buildbot-configuration
+cd maliit-buildbot-configuration</pre></p>
+      <p>Add this repository as a remote to an existing local repository:
+<pre>
+git remote add maliit-buildbot-configuration git://gitorious.org/maliit/maliit-buildbot-configuration.git
+git fetch maliit-buildbot-configuration
+git checkout -b my-local-tracking-branch maliit-buildbot-configuration/master_or_other_branch
+</pre>
+      </p>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var standard = $("#git-103727:checked, #http-103727:checked, #ssh-103727:checked").val();
+
+        $('#clone-url-103727').val(standard);
+
+        $('#git-103727').click(function () {
+            var text = $('#git-103727').val();
+            $('#clone-url-103727').val(text);
+        });
+
+        $('#http-103727').click(function () {
+            var text = $('#http-103727').val();
+            $('#clone-url-103727').val(text);
+        });
+        $('#ssh-103727').click(function () {
+            var text = $('#ssh-103727').val();
+            $('#clone-url-103727').val(text);
+        });
+
+        $('#clone-url-103727').click(function () {
+            this.select();
+        });
+    });
+</script>
+
+ </div>
+ 	</div> <!-- End of repository-description -->
+
+	<div class="repository-links">
+		<div class="repository-link favorite button"><a href="/favorites/874245" class="watch-link enabled round-10" data-request-method="delete">Unwatch</a></div>		
+	  	<ul>
+	    	<li class="repository-link commit">
+	      	<a href="/maliit/maliit-buildbot-configuration/commits">Commit log</a>	    	</li>
+	    	<li class="repository-link tree">
+	      	<a href="/maliit/maliit-buildbot-configuration/trees">Source tree</a>	    	</li>
+	    	<li class="repository-link merge_requests">
+	      	<a href="/maliit/maliit-buildbot-configuration/merge_requests">Merge requests <small>(2)</small></a>	    	</li>
+
+					<li class="repository-link clone_repository">
+				<a href="/maliit/maliit-buildbot-configuration/clone">Clone repository</a>			</li>
+		 	  </ul>	
+		
+	</div>
+
+</div>
+      
+
+
+
+<div class="repository_meta">
+	<div class="repository-info">
+    		<h3 mainline>
+      		      			<a href="/maliit/maliit-ubuntu-packaging-framework">maliit-ubuntu-packaging-framework</a>    		</h3>
+    
+
+      <div class="repository-description page">
+	
+      <p>Packaging for the official Ubuntu packages in Maliit PPA &ndash; for maliit-framework</p>     </div>
+    <div class="infobox">
+    
+
+<ul>
+  <li>
+    <div class="clone_urls">
+      <form class="clone_urls_form">
+        <p><strong>Clone &amp; push urls</strong></p>
+              <p class="clone_radio">
+        <label for="git-105479">
+          <input type="radio" id="git-105479" name="url-105479" value="git://gitorious.org/maliit/maliit-ubuntu-packaging-framework.git" >GIT
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="http-105479">
+          <input type="radio" id="http-105479" name="url-105479" value="https://git.gitorious.org/maliit/maliit-ubuntu-packaging-framework.git" >HTTP
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="ssh-105479">
+          <input type="radio" id="ssh-105479" name="url-105479" value="git@gitorious.org:maliit/maliit-ubuntu-packaging-framework.git" checked="checked">SSH
+        </label>
+      </p>
+
+
+        <p class="clone-copy git_http_ssh">
+          <input type="text" readonly="readonly" id="clone-url-105479" value="" />
+          <a href="#help" id="clone-help-105479" class="clone-help-toggler">?</a>
+        </p>
+      </form>
+    </div>
+    <div id="clone-help-105479-box" class="clone-help-text" style="display:none;">
+                    <p>
+          Adding this repository as a pushable origin:
+<pre>
+# Add the push url to your already existing origin:
+git remote set-url --push origin git@gitorious.org:maliit/maliit-ubuntu-packaging-framework.git
+# to push the master branch to the origin remote we added above:
+git push origin master
+# after that you can just do:
+git push
+</pre></p>
+            <p>Cloning this repository:
+<pre>
+git clone git://gitorious.org/maliit/maliit-ubuntu-packaging-framework.git maliit-ubuntu-packaging-framework
+cd maliit-ubuntu-packaging-framework</pre></p>
+      <p>Add this repository as a remote to an existing local repository:
+<pre>
+git remote add maliit-ubuntu-packaging-framework git://gitorious.org/maliit/maliit-ubuntu-packaging-framework.git
+git fetch maliit-ubuntu-packaging-framework
+git checkout -b my-local-tracking-branch maliit-ubuntu-packaging-framework/master_or_other_branch
+</pre>
+      </p>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var standard = $("#git-105479:checked, #http-105479:checked, #ssh-105479:checked").val();
+
+        $('#clone-url-105479').val(standard);
+
+        $('#git-105479').click(function () {
+            var text = $('#git-105479').val();
+            $('#clone-url-105479').val(text);
+        });
+
+        $('#http-105479').click(function () {
+            var text = $('#http-105479').val();
+            $('#clone-url-105479').val(text);
+        });
+        $('#ssh-105479').click(function () {
+            var text = $('#ssh-105479').val();
+            $('#clone-url-105479').val(text);
+        });
+
+        $('#clone-url-105479').click(function () {
+            this.select();
+        });
+    });
+</script>
+
+ </div>
+ 	</div> <!-- End of repository-description -->
+
+	<div class="repository-links">
+		<div class="repository-link favorite button"><a href="/favorites/886329" class="watch-link enabled round-10" data-request-method="delete">Unwatch</a></div>		
+	  	<ul>
+	    	<li class="repository-link commit">
+	      	<a href="/maliit/maliit-ubuntu-packaging-framework/commits">Commit log</a>	    	</li>
+	    	<li class="repository-link tree">
+	      	<a href="/maliit/maliit-ubuntu-packaging-framework/trees">Source tree</a>	    	</li>
+	    	<li class="repository-link merge_requests">
+	      	<a href="/maliit/maliit-ubuntu-packaging-framework/merge_requests">Merge requests <small>(0)</small></a>	    	</li>
+
+					<li class="repository-link clone_repository">
+				<a href="/maliit/maliit-ubuntu-packaging-framework/clone">Clone repository</a>			</li>
+		 	  </ul>	
+		
+	</div>
+
+</div>
+      
+
+
+
+<div class="repository_meta">
+	<div class="repository-info">
+    		<h3 mainline>
+      		      			<a href="/maliit/maliit-ubuntu-packaging-plugins">maliit-ubuntu-packaging-plugins</a>    		</h3>
+    
+
+      <div class="repository-description page">
+	
+      <p>Packaging for the official Ubuntu packages in Maliit PPA – for maliit-plugins</p>     </div>
+    <div class="infobox">
+    
+
+<ul>
+  <li>
+    <div class="clone_urls">
+      <form class="clone_urls_form">
+        <p><strong>Clone &amp; push urls</strong></p>
+              <p class="clone_radio">
+        <label for="git-105480">
+          <input type="radio" id="git-105480" name="url-105480" value="git://gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git" >GIT
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="http-105480">
+          <input type="radio" id="http-105480" name="url-105480" value="https://git.gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git" >HTTP
+        </label>
+      </p>
+
+              <p class="clone_radio">
+        <label for="ssh-105480">
+          <input type="radio" id="ssh-105480" name="url-105480" value="git@gitorious.org:maliit/maliit-ubuntu-packaging-plugins.git" checked="checked">SSH
+        </label>
+      </p>
+
+
+        <p class="clone-copy git_http_ssh">
+          <input type="text" readonly="readonly" id="clone-url-105480" value="" />
+          <a href="#help" id="clone-help-105480" class="clone-help-toggler">?</a>
+        </p>
+      </form>
+    </div>
+    <div id="clone-help-105480-box" class="clone-help-text" style="display:none;">
+                    <p>
+          Adding this repository as a pushable origin:
+<pre>
+# Add the push url to your already existing origin:
+git remote set-url --push origin git@gitorious.org:maliit/maliit-ubuntu-packaging-plugins.git
+# to push the master branch to the origin remote we added above:
+git push origin master
+# after that you can just do:
+git push
+</pre></p>
+            <p>Cloning this repository:
+<pre>
+git clone git://gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git maliit-ubuntu-packaging-plugins
+cd maliit-ubuntu-packaging-plugins</pre></p>
+      <p>Add this repository as a remote to an existing local repository:
+<pre>
+git remote add maliit-ubuntu-packaging-plugins git://gitorious.org/maliit/maliit-ubuntu-packaging-plugins.git
+git fetch maliit-ubuntu-packaging-plugins
+git checkout -b my-local-tracking-branch maliit-ubuntu-packaging-plugins/master_or_other_branch
+</pre>
+      </p>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var standard = $("#git-105480:checked, #http-105480:checked, #ssh-105480:checked").val();
+
+        $('#clone-url-105480').val(standard);
+
+        $('#git-105480').click(function () {
+            var text = $('#git-105480').val();
+            $('#clone-url-105480').val(text);
+        });
+
+        $('#http-105480').click(function () {
+            var text = $('#http-105480').val();
+            $('#clone-url-105480').val(text);
+        });
+        $('#ssh-105480').click(function () {
+            var text = $('#ssh-105480').val();
+            $('#clone-url-105480').val(text);
+        });
+
+        $('#clone-url-105480').click(function () {
+            this.select();
+        });
+    });
+</script>
+
+ </div>
+ 	</div> <!-- End of repository-description -->
+
+	<div class="repository-links">
+		<div class="repository-link favorite button"><a href="/favorites/886330" class="watch-link enabled round-10" data-request-method="delete">Unwatch</a></div>		
+	  	<ul>
+	    	<li class="repository-link commit">
+	      	<a href="/maliit/maliit-ubuntu-packaging-plugins/commits">Commit log</a>	    	</li>
+	    	<li class="repository-link tree">
+	      	<a href="/maliit/maliit-ubuntu-packaging-plugins/trees">Source tree</a>	    	</li>
+	    	<li class="repository-link merge_requests">
+	      	<a href="/maliit/maliit-ubuntu-packaging-plugins/merge_requests">Merge requests <small>(0)</small></a>	    	</li>
+
+					<li class="repository-link clone_repository">
+				<a href="/maliit/maliit-ubuntu-packaging-plugins/clone">Clone repository</a>			</li>
+		 	  </ul>	
+		
+	</div>
+
+</div>
+  </div>
+<div class="content-container w-750" id="activities">
+  <h2>Activities <a href="/maliit.atom" alt="Atom feed" title="Atom feed"><img alt="Feed" class="feed_icon" src="/images/silk/feed.png?1322725723" /></a></h2>
+  
+
+
+
+
+<ul class="events w-750">
+  <li>
+    <p class="date">Monday December 19 2011</p>
+    <ul class="event_instances">
+      
+
+
+<li class="event_instance  update_merge_request" id="event_42843025">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">15:37</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~araujo" class="event-author">Luis Araujo</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-plugins/merge_requests/26">maliit/maliit-plugins #26</a><div class="meta_body">&#x2192; new version 2</div>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42843023">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">15:36</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~araujo" class="event-author">Luis Araujo</a></strong>
+      
+      pushed <a href="/~araujo/maliit/araujos-maliit-plugins/commits/nemo-PluginClose-RepeatKeyPress" class="commit_event_toggler" gts:id="42843023" gts:url="/events/42843023/commits" id="commits_in_event_42843023_toggler">2 commits</a>  to <a href="/~araujo/maliit/araujos-maliit-plugins/commits/nemo-PluginClose-RepeatKeyPress">~araujo/maliit/araujos-maliit-plugins:nemo-PluginClose-RepeatKeyPress</a>. <a href="/maliit/araujos-maliit-plugins/commit/8e1315ae0419e7786ccc73ec153ea88f6d84cfef/diffs/171531becb02bf356673c5e971464448008c56a6">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>nemo-PluginClose-RepeatKeyPress changed from 8e1315a to 171531b</p>
+    </div>
+    
+              <div id="commits_in_event_42843023" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42842971">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">15:13</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=b42bbab5ced66564f8eaf494db44ef8f&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~vsobolev" class="event-author">Viacheslav Sobolev</a></strong>
+      
+      pushed <a href="/~vsobolev/maliit/vsobolev-maliit-framework/commits/enforce-all-layouts" class="commit_event_toggler" gts:id="42842971" gts:url="/events/42842971/commits" id="commits_in_event_42842971_toggler">1 commit</a>  to <a href="/~vsobolev/maliit/vsobolev-maliit-framework/commits/enforce-all-layouts">~vsobolev/maliit/vsobolev-maliit-framework:enforce-all-layouts</a>. <a href="/maliit/vsobolev-maliit-framework/commit/ded66dac83423546f7f7e10114f4677429cd272e/diffs/090603f3441439d7c24fdd6fc91f56f31a8f83fd">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>enforce-all-layouts changed from ded66da to 090603f</p>
+    </div>
+    
+              <div id="commits_in_event_42842971" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+
+
+
+<li class="event_instance  comment" id="event_42842965">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">15:08</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/26#comment_80489">maliit/maliit-plugins #26</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>(same)</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  comment" id="event_42842964">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">15:07</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/26#comment_80488">maliit/maliit-plugins #26</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>(same)</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  comment" id="event_42842963">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">15:07</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/26#comment_80487">maliit/maliit-plugins #26</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>remove instead of commenting</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  comment" id="event_42842954">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">15:00</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~araujo" class="event-author">Luis Araujo</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/26#comment_80486">maliit/maliit-plugins #26</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>Among the most radical change here is that now it commits the char after every key press instead of using preedit, this makes it more efficient for...</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  request_merge" id="event_42842937">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">14:57</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~araujo" class="event-author">Luis Araujo</a></strong>
+      
+      requested merge of <a href="/~araujo/maliit/araujos-maliit-plugins">~araujo/maliit/araujos-maliit-plugins</a> with <a href="/maliit/maliit-plugins">maliit-plugins</a> in merge request <a href="/maliit/maliit-plugins/merge_requests/26">maliit/maliit-plugins #26</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p><a href="/maliit/maliit-plugins/merge_requests/26">Use PluginClose from the main view: it avoids swiping the keys over the application. Add key repe...</a></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42842918">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">14:51</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~araujo" class="event-author">Luis Araujo</a></strong>
+      
+      created branch <a href="/~araujo/maliit/araujos-maliit-plugins/commits/nemo-PluginClose-RepeatKeyPress">nemo-PluginClose-RepeatKeyPress</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~araujo/maliit/araujos-maliit-plugins">araujos-maliit-plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42842893">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">14:35</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=5ae24cf5007a17fa6e19bf284daba40c&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~rcherian" class="event-author">Rakesh Cherian</a></strong>
+      
+      created branch <a href="/~rcherian/maliit/rcherians-maliit-plugins/commits/debian">debian</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~rcherian/maliit/rcherians-maliit-plugins">rcherians-maliit-plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42842860">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">14:23</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      pushed <a href="/~mikhas/maliit/plugins/commits/debian" class="commit_event_toggler" gts:id="42842860" gts:url="/events/42842860/commits" id="commits_in_event_42842860_toggler">1 commit</a>  to <a href="/~mikhas/maliit/plugins/commits/debian">~mikhas/maliit/plugins:debian</a>. <a href="/maliit/plugins/commit/7c550a987d0a84d2ac9c5d6e5edd691bd5290c4e/diffs/ec075fc57b86312ba2559d01bfdf59489dd7b29f">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>debian changed from 7c550a9 to ec075fc</p>
+    </div>
+    
+              <div id="commits_in_event_42842860" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42842837">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">14:13</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      created branch <a href="/~mikhas/maliit/plugins/commits/debian">debian</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~mikhas/maliit/plugins">plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42842630">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">12:18</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=b42bbab5ced66564f8eaf494db44ef8f&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~vsobolev" class="event-author">Viacheslav Sobolev</a></strong>
+      
+      pushed <a href="/~vsobolev/maliit/vsobolev-maliit-framework/commits/enforce-all-layouts" class="commit_event_toggler" gts:id="42842630" gts:url="/events/42842630/commits" id="commits_in_event_42842630_toggler">1 commit</a>  to <a href="/~vsobolev/maliit/vsobolev-maliit-framework/commits/enforce-all-layouts">~vsobolev/maliit/vsobolev-maliit-framework:enforce-all-layouts</a>. <a href="/maliit/vsobolev-maliit-framework/commit/b55e329e7709a9a34311a23e06132d3521b2b837/diffs/ded66dac83423546f7f7e10114f4677429cd272e">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>enforce-all-layouts changed from b55e329 to ded66da</p>
+    </div>
+    
+              <div id="commits_in_event_42842630" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42842581">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">11:51</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=b42bbab5ced66564f8eaf494db44ef8f&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~vsobolev" class="event-author">Viacheslav Sobolev</a></strong>
+      
+      created branch <a href="/~vsobolev/maliit/vsobolev-maliit-framework/commits/enforce-all-layouts">enforce-all-layouts</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~vsobolev/maliit/vsobolev-maliit-framework">vsobolev-maliit-framework</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+    </ul>
+  </li>
+  <li>
+    <p class="date">Sunday December 18 2011</p>
+    <ul class="event_instances">
+      
+
+
+<li class="event_instance  comment" id="event_42841753">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">21:16</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/24#comment_80460">maliit/maliit-plugins #24</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>I have two more patch sets (fixed viewer [FV] and extended keys [EK]) that depend on this, with [EK] also depending on [FV].</p>
+
+<p>[FV]  https://gitor...</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42841746">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">21:12</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      created branch <a href="/~mikhas/maliit/plugins/commits/extended-keys">extended-keys</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~mikhas/maliit/plugins">plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  update_merge_request" id="event_42841522">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">18:17</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-plugins/merge_requests/25">maliit/maliit-plugins #25</a><div class="meta_body">&#x2192; new version 2</div>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  request_merge" id="event_42841430">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">16:49</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      requested merge of <a href="/~mikhas/maliit/plugins">~mikhas/maliit/plugins</a> with <a href="/maliit/maliit-plugins">maliit-plugins</a> in merge request <a href="/maliit/maliit-plugins/merge_requests/25">maliit/maliit-plugins #25</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p><a href="/maliit/maliit-plugins/merge_requests/25"></a></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42841428">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">16:44</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      pushed <a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42841428" gts:url="/events/42841428/commits" id="commits_in_event_42841428_toggler">3 commits</a>  to <a href="/~mikhas/maliit/plugins/commits/master">~mikhas/maliit/plugins:master</a>. <a href="/maliit/plugins/commit/fb2b4240e6dc88a30310a3889ece4313265c4f8d/diffs/bf76a55c8ae05f3153c3346a04c25b0b6fa5d1fc">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>master changed from fb2b424 to bf76a55</p>
+    </div>
+    
+              <div id="commits_in_event_42841428" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42841419">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">16:32</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      created branch <a href="/~mikhas/maliit/plugins/commits/pixmap-free-libmaliit-keyboard">pixmap-free-libmaliit-keyboard</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~mikhas/maliit/plugins">plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  create_branch" id="event_42841413">
+	  <p class="event_category commit">Commit</p>
+      <p class="event_date">16:29</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      created branch <a href="/~mikhas/maliit/plugins/commits/fix-viewer">fix-viewer</a> on <a href="/maliit">maliit</a>/<a href="https://gitorious.org/~mikhas/maliit/plugins">plugins</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  request_merge" id="event_42841293">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">14:34</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      requested merge of <a href="/~jonnor/maliit/jonnors-maliit-buildbot-configuration">~jonnor/maliit/jonnors-maliit-buildbot-configuration</a> with <a href="/maliit/maliit-buildbot-configuration">maliit-buildbot-configuration</a> in merge request <a href="/maliit/maliit-buildbot-configuration/merge_requests/2">maliit/maliit-buildbot-configuration #2</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p><a href="/maliit/maliit-buildbot-configuration/merge_requests/2"></a></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  update_merge_request" id="event_42840864">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">01:58</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-buildbot-configuration/merge_requests/1">maliit/maliit-buildbot-configuration #1</a><div class="meta_body">&#x2192; State changed from <span class="changed">Updated</span> to <span class="changed">Need info</span></div>
+    
+    </p>
+    <div class=" commit_message">
+      <p>df</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  update_merge_request" id="event_42840861">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">01:53</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-buildbot-configuration/merge_requests/1">maliit/maliit-buildbot-configuration #1</a><div class="meta_body">&#x2192; State changed from <span class="changed">Go ahead and merge</span> to <span class="changed">Updated</span></div>
+    
+    </p>
+    <div class=" commit_message">
+      <p>kfk</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  comment" id="event_42840852">
+	  <p class="event_category comment">Comment</p>
+      <p class="event_date">01:48</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      commented  on merge request <a href="/maliit/maliit-plugins/merge_requests/24#comment_80440">maliit/maliit-plugins #24</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>Should use QDir + QDir::absoluteFilePath()</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  update_merge_request" id="event_42840848">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">01:42</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-buildbot-configuration/merge_requests/1">maliit/maliit-buildbot-configuration #1</a><div class="meta_body">&#x2192; State changed from <span class="changed">Recommended to merge</span> to <span class="changed">Go ahead and merge</span></div>
+    
+    </p>
+    <div class=" commit_message">
+      <p>dfd</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  request_merge" id="event_42840783">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">00:25</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      requested merge of <a href="/~mikhas/maliit/plugins">~mikhas/maliit/plugins</a> with <a href="/maliit/maliit-plugins">maliit-plugins</a> in merge request <a href="/maliit/maliit-plugins/merge_requests/24">maliit/maliit-plugins #24</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p><a href="/maliit/maliit-plugins/merge_requests/24">Done in 3 steps:</p>
+
+<p>1. Move data files to common directory so that renderer (in libmaliit-keyboar...</a></p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42840779">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">00:18</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      pushed <a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42840779" gts:url="/events/42840779/commits" id="commits_in_event_42840779_toggler">2 commits</a>  to <a href="/~mikhas/maliit/plugins/commits/master">~mikhas/maliit/plugins:master</a>. <a href="/maliit/plugins/commit/3fb3bd998f0e8e6780a6a5bf501b2221fe6b1b1b/diffs/fb2b4240e6dc88a30310a3889ece4313265c4f8d">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>master changed from 3fb3bd9 to fb2b424</p>
+    </div>
+    
+              <div id="commits_in_event_42840779" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+    </ul>
+  </li>
+  <li>
+    <p class="date">Saturday December 17 2011</p>
+    <ul class="event_instances">
+      
+
+
+<li class="event_instance  update_merge_request" id="event_42840711">
+	  <p class="event_category merge_request">Merge request</p>
+      <p class="event_date">23:19</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a119dcae9b1d6469150e8f3c3691e07a&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~jonnor" class="event-author">Jon Nordby</a></strong>
+      
+      updated merge request <a href="/maliit/maliit-buildbot-configuration/merge_requests/1">maliit/maliit-buildbot-configuration #1</a><div class="meta_body">&#x2192; State changed from <span class="changed">Revise and update</span> to <span class="changed">Recommended to merge</span></div>
+    
+    </p>
+    <div class=" commit_message">
+      <p>d</p>
+    </div>
+    
+        
+  </div>
+</li>
+
+
+
+<li class="event_instance  push_summary" id="event_42840623">
+	  <p class="event_category push">Push</p>
+      <p class="event_date">21:49</p>
+    <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;size=16" width="16" />
+
+  <div class="event_meta">
+    <p class="event_action">
+        
+      
+        <strong><a href="/~mikhas" class="event-author">Michael Hasselmann</a></strong>
+      
+      pushed <a href="/~mikhas/maliit/plugins/commits/master" class="commit_event_toggler" gts:id="42840623" gts:url="/events/42840623/commits" id="commits_in_event_42840623_toggler">2 commits</a>  to <a href="/~mikhas/maliit/plugins/commits/master">~mikhas/maliit/plugins:master</a>. <a href="/maliit/plugins/commit/6ff99983f4a064200fcac1ed86e77b7042f7871e/diffs/3fb3bd998f0e8e6780a6a5bf501b2221fe6b1b1b">View diff</a>
+    
+    </p>
+    <div class=" commit_message">
+      <p>master changed from 6ff9998 to 3fb3bd9</p>
+    </div>
+    
+              <div id="commits_in_event_42840623" style="display:none">
+        <img alt="Spinner" src="/images/spinner.gif?1322725723" />      </div>
+    
+  </div>
+</li>
+    </ul>
+  </li>
+</ul>
+<div class="pagination"><span class="disabled prev_page">Previous</span> <span class="current">1</span> <a href="/maliit?page=2" rel="next">2</a> <a href="/maliit?page=3">3</a> <a href="/maliit?page=4">4</a> <a href="/maliit?page=5">5</a> <a href="/maliit?page=6">6</a> <a href="/maliit?page=7">7</a> <a href="/maliit?page=8">8</a> <a href="/maliit?page=9">9</a> <span class="gap">&hellip;</span> <a href="/maliit?page=87">87</a> <a href="/maliit?page=88">88</a> <a href="/maliit?page=2" class="next_page" rel="next">Next</a></div></div>
+
+      </div>
+              <div id="sidebar">
+            <ul class="links navigation">
+              <li class="project_members">
+        <a href="/+maliit/memberships">View project members</a>      </li>
+              <li class="new_repository"><a href="/maliit/repositories/new">Add repository</a></li>
+      <li class="update_project"><a href="/maliit/edit">Edit project</a></li>
+      </ul>
+  
+<ul id="project-meta">
+  <h3>Project information</h3>
+      <li><strong>Labels:</strong>
+      <a href="/search?q=category%3Ainput">input</a>, <a href="/search?q=category%3Amethods">methods</a>, <a href="/search?q=category%3AMeego">Meego</a>, <a href="/search?q=category%3AMaliit">Maliit</a>, and <a href="/search?q=category%3Aharmattan">harmattan</a></li>
+  
+      <li><strong>License:</strong> Other/Multiple</li>
+  
+      <li>
+      <strong>Owner:</strong>
+      <a href="/+maliit">+maliit</a>              <br /><small>(Created by <a href="/~mikhas">mikhas</a>)</small>
+          </li>
+    <li><strong>Created:</strong> 09 Jun 2011</li>
+      <li><strong>Website at </strong>
+      <a href="http://maliit.org">maliit.org</a></li>
+        <li><strong>Mailinglist at </strong>
+      <a href="http://lists.maliit.org/listinfo.cgi/maliit-discuss-maliit.org">lists.maliit.org</a></li>
+        <li><strong>Bugtracker at </strong>
+      <a href="https://bugs.maliit.org/">bugs.maliit.org</a></li>
+  </ul>
+
+      <h3>
+      <a href="/maliit/repositories">Repository clones</a>    </h3>
+          
+
+<div id="repo_search" 
+     gts:searchUri="/maliit/repositories.json">
+  <form>
+  <input name="filter" type="text" class="search" autocomplete="off" />
+  <span class="reset"><img alt="Cancel_grey" src="/images/cancel_grey.png?1322725723" /></span>
+  </form>
+  <div class="no-results-found">
+    No results
+  </div>
+  <ul class="repository_list"></ul>
+</div>
+        
+<div id="clone-list-container">
+  <div class="personal_clones">
+    <h5>Personal clones (39)</h5>
+    <ul class="repository_list">
+            
+<li class="clone">
+  <div class="name">
+    <a href="/~araujo/maliit/araujos-maliit-plugins">araujos-maliit-plugins</a>  </div>
+      <div class="user">
+      <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=a33b6e55db2bfda71472321d83077f23&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;version=tiny&amp;size=16" width="16" />
+      <a href="/~araujo">Luis Araujo</a>    </div>
+  </li>            
+<li class="clone">
+  <div class="name">
+    <a href="/~vsobolev/maliit/vsobolev-maliit-framework">vsobolev-maliit-framework</a>  </div>
+      <div class="user">
+      <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=b42bbab5ced66564f8eaf494db44ef8f&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;version=tiny&amp;size=16" width="16" />
+      <a href="/~vsobolev">Viacheslav Sobolev</a>    </div>
+  </li>            
+<li class="clone">
+  <div class="name">
+    <a href="/~rcherian/maliit/rcherians-maliit-plugins">rcherians-maliit-plugins</a>  </div>
+      <div class="user">
+      <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=5ae24cf5007a17fa6e19bf284daba40c&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;version=tiny&amp;size=16" width="16" />
+      <a href="/~rcherian">Rakesh Cherian</a>    </div>
+  </li>            
+<li class="clone">
+  <div class="name">
+    <a href="/~mikhas/maliit/plugins">plugins</a>  </div>
+      <div class="user">
+      <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;version=tiny&amp;size=16" width="16" />
+      <a href="/~mikhas">Michael Hasselmann</a>    </div>
+  </li>            
+<li class="clone">
+  <div class="name">
+    <a href="/~mikhas/maliit/fw">fw</a>  </div>
+      <div class="user">
+      <img alt="avatar" height="16" src="https://secure.gravatar.com/avatar.php?gravatar_id=6d472f6d246ba03e2a769d8cbf56b53e&amp;default=https%3A%2F%2Fgitorious.org%2Fimages%2Fdefault_face.gif&amp;version=tiny&amp;size=16" width="16" />
+      <a href="/~mikhas">Michael Hasselmann</a>    </div>
+  </li>          </ul>
+  </div>
+
+    <small style="float:right;"><a href="/maliit/clones" id="show_all_clones">Show all</a></small>
+</div>
+          </div>
+          </div>
+    <div id="footer">
+      
+<div class="powered-by">
+  <a href="http://gitorious.org"><img alt="Poweredby" src="/images/../img/poweredby.png?1294322727" title="Powered by Gitorious" /></a></div>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-52238-3']);
+_gaq.push(['_setDomainName', '.gitorious.org'])
+_gaq.push(['_trackPageview']);
+(function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script><script src="/javascripts/onload.js?1322725723" type="text/javascript"></script>
+      
+<div id="footer-links">
+  <h3>Gitorious</h3>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/about/faq">FAQ</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  
+    <ul>
+      <li><a href="http://groups.google.com/group/gitorious">Discussion group</a></li>
+      <li><a href="http://blog.gitorious.org">Blog</a></li>
+    </ul>
+  
+      
+<ul>
+  <li><a href="http://en.gitorious.org/tos">Terms of Service</a></li>
+  <li><a href="http://en.gitorious.org/privacy_policy">Privacy Policy</a></li>
+</ul>
+
+  
+  
+    <ul>
+      
+        <li><a href="http://gitorious.com/">Professional Gitorious Services</a></li>
+      
+    </ul>
+  
+</div>
+      <p class="footer-blurb">
+  
+    <a href="http://gitorious.com">Professional Gitorious services</a> - Git
+    hosting at your company, custom features, support and more.
+    <a href="http://gitorious.com">gitorious.com</a>.
+  
+</p>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -3,7 +3,7 @@ import HTMLParser, re
 from twisted.words.protocols import irc
 from twisted.internet import protocol, task
 
-from gitorious_mrq import feedreader
+from gitorious_mrq import feedreader, scrape
 
 class GitoriousMergeRequestMessager(object):
     """Process Gitorious RSS and report messages for new merge requests.
@@ -132,7 +132,7 @@ class IrcBot(object):
         self.is_running = False
 
     def checkRssFeed(self):
-        feed = '%s/%s.atom' % (self.host, self.project)
+        feed = scrape.project_activity_feed_template % dict(host=self.host, project=self.project)
         f = feedreader.FeederFactory()
         d = f.start([feed], self.processNewRss)
 
@@ -143,6 +143,20 @@ class IrcBot(object):
         # FIXME: should not have knowledge about the protocol
         # Instead pass in a callback that gets called here?
         self.protocol.msg(self.protocol.factory.channel, message.encode('ascii', 'ignore'))
+
+def url_for_mrq(host, project, id):
+    return scrape.mrq_page_url_template % {'host': host, 'project': project, 'id': id}
+
+def format_mrq_status_listing(mrqs):
+
+    output = []
+
+    for mrq in mrqs:
+        output.append('%s/%s: - %s - %s' % (mrq['repository'], mrq['id'], mrq['status'], mrq['summary']))
+
+    return '\n'.join(output)
+
+
 
 class IrcProtocol(irc.IRCClient):
 
@@ -164,6 +178,61 @@ class IrcProtocol(irc.IRCClient):
     def signedOn(self):
         self.join(self.factory.channel)
         print "Signed on as %s." % (self.factory.nickname,)
+
+    def privmsg(self, user, channel, msg):
+
+        if msg.strip().startswith(self.nickname):
+            self.parseCommand(user, msg)
+
+        else:
+            # TODO: try to match discussion about merge requests
+            # and enrich by adding link and summary
+            pass
+
+    def parseCommand(self, user, msg):
+            msg = re.compile(self.nickname + "[:,]* ?", re.I).sub('', msg)
+
+            split = msg.split()
+            command = split[0]
+            args = split[1:]
+
+            print command, args
+
+            # TODO: status command
+            # list number of open merge requests, and
+            # - which state they are in
+            # - which repositories they are in
+
+            commands = {}
+
+            def command_help(command, args):
+                """Print usage help."""
+
+                valid_commands = commands.keys()
+                self.respondToUser(user, 'Valid commands: %s' % ' '.join(valid_commands))
+
+            def command_list(command, args):
+                """List all open merge requests."""
+                f = scrape.MergeRequestRetriever()
+                d = f.start(self.factory.bot.host, self.factory.bot.project)
+                d.addCallback(self.printOpenMergeRequests, user)
+
+            commands.update({'list': command_list, 'help': command_help})
+
+            def unknown_command(command, args):
+                self.respondToUser(user, 'Unknown command: %s' % command)
+
+            cmd_func = commands.get(command, unknown_command)
+            cmd_func(command, args)
+
+    def respondToUser(self, user, msg):
+        response_prefix = "%s: " % (user.split('!', 1)[0], )
+        response = response_prefix + msg
+        encoded = msg.encode('ascii', 'ignore')
+        self.msg(self.factory.channel, encoded)
+
+    def printOpenMergeRequests(self, mrqs, user):
+        self.respondToUser(user, 'Open merge requests:\n' + format_mrq_status_listing(mrqs))
 
     def joined(self, channel):
         print "Joined %s." % (channel,)

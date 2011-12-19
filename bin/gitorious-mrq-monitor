@@ -6,6 +6,10 @@ from twisted.internet import reactor
 
 from gitorious_mrq import ircbot
 
+# TODO: an option to log/cache the retrieved files
+# This allows to easily update the data files used for features tests.
+# A allows post-mortem debugging in case of failures, and
+# such data can be used as test-data for regression tests
 
 if __name__ == "__main__":
 

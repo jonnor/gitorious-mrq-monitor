@@ -1,6 +1,6 @@
 import os
 
-from twisted.web import server, resource
+from twisted.web import server, resource, static
 from twisted.internet import reactor, protocol
 
 import gitorious_mrq
@@ -59,7 +59,7 @@ def run_mrq_monitor():
 
 def setup_feedserver():
 
-    root = Feed()
+    root = static.File('./tests/data')
     feed = Feed()
     root.putChild("maliit.atom", feed)
     site = server.Site(root)
