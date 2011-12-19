@@ -1,2 +1,7 @@
 *.pyc
 *~
+twistd.*
+MANIFEST
+build/
+dist/
+
