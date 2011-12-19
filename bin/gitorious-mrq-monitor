@@ -15,13 +15,13 @@ if __name__ == "__main__":
     parser.add_option('', "--host", default='http://gitorious.org',
                       help="The URL to the Gitorious instance hosting the project.")
 
-    parser.add_option('', "--poll-interval", default=5*60,
+    parser.add_option('', "--poll-interval", default=5*60, type='int',
                       help="The interval to poll the feed and look for updates (in seconds).")
 
     # Options for IRC
     parser.add_option('', "--irc-server", default='irc.freenode.net',
                       help="The server to connect IRC bot to.")
-    parser.add_option('', "--irc-port", default=6667,
+    parser.add_option('', "--irc-port", default=6667, type='int',
                       help="The port to use for IRC bot.")
     parser.add_option('', "--irc-channel", default='#$project',
                       help="The channel to join for IRC bot.")
