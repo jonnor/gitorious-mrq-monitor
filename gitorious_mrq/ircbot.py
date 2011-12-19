@@ -5,8 +5,6 @@ from twisted.internet import protocol, task
 
 from gitorious_mrq import feedreader
 
-FEED_POLL_INTERVAL = 5*60 # Every 5 minutes
-
 class GitoriousMergeRequestMessager(object):
     """Process Gitorious RSS and report messages for new merge requests.
 
