@@ -3,26 +3,37 @@ Gitorious Merge Request Monitor
 
 Currently supports reporting status over IRC.
 
-Author: Jon Nordby
+Author: Jon Nordby <jononor@gmail.com>
 License: GPLv3+
+Website: https://github.com/jonnor/gitorious-mrq-monitor
 
 == Dependencies ==
 Python 2.x
 Twisted
 feedparser
 
-== Usage ==
+== Installing ==
+From PyPi:
+ pip install gitorious-mrq-monitor
+
 From source tree:
-
- export PYTHONPATH=./
- ./bin/gitorious-mrq-monitor myproject
-
-Install and use:
-
  python setup.py install
- gitorious-mrq-monitor myproject
 
-See --help for more options.
+Note that installing is not needed to use the software.
+== Usage ==
 
-== TODO ==
-See TODO and FIXME comments in the code.
+ gitorious-mrq-monitor myproject [options]
+
+For usage from source tree, without installing:
+
+ export PYTHONPATH=./:$PYTHONPATH
+ export PATH=./bin:$PATH
+ gitorious-mrq-monitor myproject [options]
+
+== Documentation ==
+
+ See output of
+ gitorious-mrq-monitor --help
+
+== Future plans ==
+For a list of tasks and ideas, see the TODO file.

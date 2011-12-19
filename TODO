@@ -1,0 +1,18 @@
+== TODO ==
+See TODO and FIXME comments in the code.
+
+New features
+- Report status on stdout
+
+Irc bot additions
+- Add a 'status' command, giving the status of open merge requests 
+- Enrich dicussions about merge requests
+Printing title of mrq or link when merge requests are referenced
+(reponame/nickname mrq/merge request #1, or direct link)
+
+In Gitorious
+- Implement a proper REST API
+
+Should-be-done-in-Gitorious-but-could-be-hacked-here
+- Email status updates. Per change or daily digest
+- Web status screen. A HTML widget that can be embedded into a website
