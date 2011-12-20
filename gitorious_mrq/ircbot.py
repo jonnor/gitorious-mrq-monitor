@@ -111,16 +111,15 @@ class IrcBot(object):
     """Bot "business logic". Periodically polls the RSS feed and
     processes it."""
 
-    # FIXME: we don't support multiple feeds, fix the API
-
     def __init__(self, host, project, poll_interval):
-        self.check_rss_task = task.LoopingCall(self.checkRssFeed)
+        self.check_rss_task = task.LoopingCall(self.checkForUpdates)
         self.processor = GitoriousMergeRequestMessager(host, project, self.outputMessage)
         self.protocol = None
         self.host = host
         self.project = project
         self.poll_interval = poll_interval
         self.is_running = False
+        self._open_merge_requests = None # None meaning invalid data
 
     def start(self):
         self.check_rss_task.start(self.poll_interval)
@@ -131,17 +130,37 @@ class IrcBot(object):
             self.check_rss_task.stop()
         self.is_running = False
 
-    def checkRssFeed(self):
+    def checkForUpdates(self):
+        # Check feed for activity
         feed = scrape.project_activity_feed_template % dict(host=self.host, project=self.project)
         f = feedreader.FeederFactory()
         d = f.start([feed], self.processNewRss)
 
     def processNewRss(self, parsed_feed):
         self.processor.processRss(parsed_feed)
+        # There was some new activity, update our state
+        self.triggerOpenMergeRequestsUpdate()
+    
+    def triggerOpenMergeRequestsUpdate(self):
+        f = scrape.MergeRequestRetriever()
+        d = f.start(self.host, self.project)
+        d.addCallback(self.updateOpenMergeRequests)
+
+    def updateOpenMergeRequests(self, mrqs):
+        self._open_merge_requests = mrqs
+
+    @property
+    def open_merge_requests(self):
+        if self._open_merge_requests is None:
+            self.triggerOpenMergeRequestsUpdate()
+        
+        return self._open_merge_requests
 
     def outputMessage(self, message):
         # FIXME: should not have knowledge about the protocol
         # Instead pass in a callback that gets called here?
+        # XXX: Probably better to have state update notifications
+        # here, and let consumers subscribe to them
         self.protocol.msg(self.protocol.factory.channel, message.encode('ascii', 'ignore'))
 
 def url_for_mrq(host, project, id):
@@ -196,12 +215,14 @@ class IrcProtocol(irc.IRCClient):
             command = split[0]
             args = split[1:]
 
-            print command, args
-
             # TODO: status command
             # list number of open merge requests, and
             # - which state they are in
             # - which repositories they are in
+
+            # TODO: testing commands
+            # test-feed-update: trigger update of activity feed
+            # Should not be shown in list of valid commands
 
             commands = {}
 
@@ -209,18 +230,27 @@ class IrcProtocol(irc.IRCClient):
                 """Print usage help."""
 
                 valid_commands = commands.keys()
+                valid_commands.remove('dance')
                 self.respondToUser(user, 'Valid commands: %s' % ' '.join(valid_commands))
 
             def command_list(command, args):
                 """List all open merge requests."""
-                f = scrape.MergeRequestRetriever()
-                d = f.start(self.factory.bot.host, self.factory.bot.project)
-                d.addCallback(self.printOpenMergeRequests, user)
+                
+                self.printOpenMergeRequests(user)
 
-            commands.update({'list': command_list, 'help': command_help})
+            def command_dance(command, args):
+                # Easteregg. Even if it is only just Christmas
+                self.respondToUser(user, "Norwegians don't dance")
+
+            commands.update({
+                'list': command_list,
+                'help': command_help, 
+                'dance': command_dance,
+                'commands': command_help,
+            })
 
             def unknown_command(command, args):
-                self.respondToUser(user, 'Unknown command: %s' % command)
+                self.respondToUser(user, 'Unknown command: "%s". Try "help" instead.' % command)
 
             cmd_func = commands.get(command, unknown_command)
             cmd_func(command, args)
@@ -231,8 +261,17 @@ class IrcProtocol(irc.IRCClient):
         encoded = msg.encode('ascii', 'ignore')
         self.msg(self.factory.channel, encoded)
 
-    def printOpenMergeRequests(self, mrqs, user):
-        self.respondToUser(user, 'Open merge requests:\n' + format_mrq_status_listing(mrqs))
+    def printOpenMergeRequests(self, user):
+        mrqs = self.factory.bot.open_merge_requests
+        if mrqs is None:
+            # TODO: just handle this case properly: async call to
+            # get new information from the monitor
+            self.respondToUser(user, 'No data available...')
+            return
+        elif not mrqs:
+            self.respondToUser(user, 'No open merge requests')
+        else:
+            self.respondToUser(user, 'Open merge requests:\n' + format_mrq_status_listing(mrqs))
 
     def joined(self, channel):
         print "Joined %s." % (channel,)
