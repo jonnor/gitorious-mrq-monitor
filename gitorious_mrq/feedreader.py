@@ -5,7 +5,7 @@ import feedparser
 
 import time, sys, StringIO
 
-TIMEOUT = 30 # Timeout in seconds for the web request
+TIMEOUT = 90 # Timeout in seconds for the web request
 
 class FeederProtocol(object):
     def __init__(self):

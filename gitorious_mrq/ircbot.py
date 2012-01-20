@@ -29,8 +29,13 @@ class GitoriousMergeRequestMessager(object):
     def getNewItems(self, parsed_feed):
         items = parsed_feed.get('items', [])
 
+        if not items:
+            print 'Warning: No items found in feed, likely error'
+            return []
+
         new_items = []
         for item in items:
+            # TODO: implement more robust way of identifying entries
             if not item in self.old_items:
                 new_items.append(item)
 
