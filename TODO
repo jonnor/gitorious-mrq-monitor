@@ -1,7 +1,11 @@
 == TODO ==
 See TODO and FIXME comments in the code.
 
-New features
+Python library (gitorious_mrq)
+- Allow to post comment on mrq
+- Allow to change status of mrq
+
+Monitoring bot features
 - Report status on stdout
 
 Irc bot additions
