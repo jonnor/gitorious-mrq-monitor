@@ -7,8 +7,8 @@ from twisted.web import client
 
 project_page_url_template = '%(host)s/%(project)s'
 project_activity_feed_template = '%(host)s/%(project)s.atom'
-mrq_overview_page_url_template = '%(host)s/%(project)s/%(repo)s/merge_requests'
-mrq_page_url_template = '%(host)s/%(project)s/%(repo)s/merge_requests/%(id)s'
+mrq_overview_page_url_template = '%(host)s/%(repo)s/merge_requests'
+mrq_page_url_template = '%(host)s/%(repo)s/merge_requests/%(id)s'
 
 class UTC(datetime.tzinfo):
     """UTC"""
@@ -31,7 +31,7 @@ def scrape_mrq_status_from_mrq_page(html_page):
     merge_requests = []
     soup = BeautifulSoup(html_page)
 
-    for row in soup('table')[0].tbody('tr'):
+    for row in soup('table')[0].findAll('tr'):
       tds = row('td')
 
       # print tds
@@ -46,9 +46,9 @@ def scrape_mrq_status_from_mrq_page(html_page):
       mrq_id = tds[0].a.string.strip('#')
       status = tds[1].string.strip()
       summary = tds[2].a.string
-      target_branch = tds[3].string
-      creator = tds[4].a.string
-      creation = datetime.datetime.strptime(tds[5].abbr['title'], '%Y-%m-%dT%H:%M:%SZ')
+      target_branch = "" # Not on the page anymore
+      creator = tds[3].a.string
+      creation = datetime.datetime.strptime(tds[4].abbr['title'], '%Y-%m-%dT%H:%M:%SZ')
 
       merge_requests.append({'id': mrq_id, 'status': status,
             'summary': summary, 'target_branch': target_branch,
@@ -62,9 +62,9 @@ def scrape_repositories_from_project_page(html_page):
     repositories = []
     soup = BeautifulSoup(html_page)
 
-    attribute_matching = {'class': 'repository-info'}
+    attribute_matching = {'class': 'repository'}
     for tag in soup(**attribute_matching):
-        repositories.append(tag.h3.a.string)
+        repositories.append(tag.a.string)
 
     return repositories
 
@@ -102,18 +102,18 @@ class MergeRequestRetrieverProtocol(object):
         self.with_errors += 1
         self.error_list.append(extra_args)
 
-    def getPage(self, data, args):
+    def getPage(self, url):
         # TODO: be nice and use HTTP conditional GET to reduce load
         # http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers/
         # http://www.phppatterns.com/docs/develop/twisted_aggregator
-        return client.getPage(data, args, timeout=TIMEOUT)
+        return client.getPage(url, timeout=TIMEOUT)
 
     def start(self, host, project):
 
         project_url = project_page_url_template % dict(host=host, project=project)
         d = defer.succeed(project_url)
 
-        d.addCallback(self.getPage, project_url)
+        d.addCallback(self.getPage)
         d.addErrback(self.gotError, (project_url, 'getting project page'))
 
         d.addCallback(self.scrapeProjectPage)
@@ -137,7 +137,7 @@ class MergeRequestRetrieverProtocol(object):
             mrq_overview_url = str(mrq_overview_page_url_template % dict(host=host, project=project, repo=repo))
             d = defer.succeed(mrq_overview_url)
 
-            d.addCallback(self.getPage, mrq_overview_url)
+            d.addCallback(self.getPage)
             d.addErrback(self.gotError, (mrq_overview_url, 'retrieving %s' % mrq_overview_url))
 
             d.addCallback(self.scrapeMergeRequestPage, host, project, repo)
